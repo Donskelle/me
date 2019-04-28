@@ -1,21 +1,28 @@
 import React from "react"
-import { Link } from "gatsby"
+// import { Link } from "gatsby"
 
-import Layout from "../components/layout"
 import Image from "../components/image"
 import SEO from "../components/seo"
+import GlobalStyle from "../styles/global"
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={[`webdev`, `cv`, `hamburg`, `frontend`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
+  <>
+    <GlobalStyle />
+    <SEO
+      title="Donskelle - Frontend Developer Hamburg"
+      keywords={[`webdev`, `cv`, `hamburg`, `frontend`]}
+    />
+
     <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
       <Image />
     </div>
-    <Link to="/page-2/">Go to page 2</Link>
-  </Layout>
+
+    <footer>
+      © {new Date().getFullYear()}, Built with
+      {` `}
+      <a href="https://www.gatsbyjs.org">Gatsby</a>
+    </footer>
+  </>
 )
 
 export default IndexPage
