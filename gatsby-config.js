@@ -1,10 +1,12 @@
+const gCredentials = require('./key.json')
+
 module.exports = {
   siteMetadata: {
     title: `Donskelle - Frontend Developer Hamburg`,
     description: `A frontend developer based in Hamburg`,
     author: `@donskelle`,
   },
-  pathPrefix: "/me",
+  pathPrefix: '/me',
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
@@ -30,12 +32,12 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-graphql",
+      resolve: 'gatsby-source-graphql',
       options: {
-        typeName: "GitHub",
-        fieldName: "github",
+        typeName: 'GitHub',
+        fieldName: 'github',
         // Url to query from
-        url: "https://api.github.com/graphql",
+        url: 'https://api.github.com/graphql',
         // HTTP headers
         headers: {
           // Learn about environment variables: https://gatsby.dev/env-vars
@@ -45,6 +47,14 @@ module.exports = {
         fetchOptions: {},
       },
     },
+    // {
+    //   resolve: 'gatsby-source-google-sheets',
+    //   options: {
+    //     spreadsheetId: '1-GXF6ztaTmemsfjjRbWZpoyqxLfOdEWIJXG1HXBldFA',
+    //     worksheetTitle: 'Sheet1',
+    //     credentials: gCredentials,
+    //   },
+    // },
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

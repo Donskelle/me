@@ -16,8 +16,8 @@ export default ({ offset = 0 }) => {
         viewer {
           name
           starredRepositories(
-            last: 60
             orderBy: { field: STARRED_AT, direction: DESC }
+            first: 20
           ) {
             totalCount
             nodes {
