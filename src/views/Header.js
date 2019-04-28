@@ -7,7 +7,7 @@ import { Content } from '../components/elements'
 import Image from '../components/gitimg'
 
 const ImgWrapper = styled.div`
-  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto`};
+  ${tw`rounded-full w-32 xl:w-48 shadow-lg h-auto overflow-hidden`};
 `
 
 const Header = ({ offset = 0 }) => {
