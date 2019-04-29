@@ -6,7 +6,7 @@ import { Content } from '../components/elements'
 
 const Contact = ({ offset = 0 }) => (
   <Content speed={0.5} offset={offset}>
-    <h1>Lets get in contact</h1>
+    <h2>Lets get in touch !</h2>
   </Content>
 )
 export default Contact

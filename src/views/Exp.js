@@ -6,7 +6,7 @@ import { Content } from '../components/elements'
 
 const Exp = ({ offset = 0 }) => (
   <Content speed={0.5} offset={offset}>
-    <h1>Exp</h1>
+    <h2>Exp</h2>
   </Content>
 )
 export default Exp

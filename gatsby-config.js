@@ -1,4 +1,4 @@
-const gCredentials = require('./key.json')
+// const gCredentials = require('./gkey.json')
 
 module.exports = {
   siteMetadata: {

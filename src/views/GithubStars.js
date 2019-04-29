@@ -37,8 +37,7 @@ export default ({ offset = 0 }) => {
   return (
     <Content speed={0.4} offset={offset}>
       <Wrapper>
-        Check out {data.github.viewer.starredRepositories.totalCount} repos i
-        like
+        Check out shit happening on Github on my awesome {data.github.viewer.starredRepositories.totalCount} long github star feed
         {data.github.viewer.starredRepositories.nodes.map(star => (
           <div>
             {star.name} also liked from {star.stargazers.totalCount}{' '}
