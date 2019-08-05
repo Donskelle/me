@@ -1,4 +1,6 @@
 import React from 'react'
+import TextField from '@material-ui/core/TextField'
+
 // import styled from 'styled-components'
 // import tw from 'tailwind.macro'
 
@@ -15,8 +17,20 @@ const Contact = ({ offset }) => (
   <>
     <ContentBG speed={0.2} offset={offset} bg={colors['blue-light']}>
       <UpDown>
-        <Emoji hiddenMobile size={textSizes.xl} left="10%" top="20%" emoji="🚀" />
-        <Emoji width={48} left="60%"  size={textSizes['5xl']} top="70%" emoji="🚀" />
+        <Emoji
+          hiddenMobile
+          size={textSizes.xl}
+          left="10%"
+          top="20%"
+          emoji="🚀"
+        />
+        <Emoji
+          width={48}
+          left="60%"
+          size={textSizes['5xl']}
+          top="70%"
+          emoji="🚀"
+        />
         <Emoji emoji="🚀" width={6} left="60%" top="15%" />
       </UpDown>
       <UpDownWide>
@@ -42,9 +56,28 @@ const Contact = ({ offset }) => (
     </ContentBG>
     <Content speed={0.5} offset={offset}>
       <h2>Lets get in touch !</h2>
+      <TextField
+        label="Name"
+        style={{ margin: 8 }}
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="E-Mail"
+        style={{ margin: 8 }}
+        helperText="Full width!"
+        fullWidth
+        margin="normal"
+      />
+      <TextField
+        label="Nachricht"
+        style={{ margin: 8 }}
+        helperText="Full width!"
+        fullWidth
+        margin="normal"
+      />
     </Content>
   </>
 )
-
 
 export default Contact
