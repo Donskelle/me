@@ -16,6 +16,7 @@
     "gatsby-source-filesystem": "^2.0.32",
     "gatsby-source-google-sheets": "^1.1.1",
     "gatsby-source-graphql": "^2.0.18",
+    "gatsby-source-meetup": "^1.0.0",
     "gatsby-transformer-sharp": "^2.1.18",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

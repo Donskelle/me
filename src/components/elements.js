@@ -6,7 +6,7 @@ import { ParallaxLayer } from 'react-spring/renderprops-addons'
 import { textSizes } from '../../tailwind'
 
 export const Content = styled(ParallaxLayer)`
-  ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50 overflow-y-hidden`};
+  ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50 overflow-y-hidden flex-col`};
 `
 export const ContentBG = styled(ParallaxLayer)`
   ${tw`absolute w-full h-full`};
