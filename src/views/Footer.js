@@ -1,10 +1,14 @@
 import React from 'react'
 
-import { Content } from '../components/elements'
+import { Content, ContentBG } from '../components/elements'
+import { colors } from '../../tailwind'
 
-const Footer = ({ children, offset = 0 }) => (
-  <Content speed={0.4} offset={offset}>
-    {children}
-  </Content>
+const Footer = ({ children, offset }) => (
+  <>
+    <ContentBG speed={1} offset={offset} bg={colors.orange} />
+    <Content speed={0.4} offset={offset}>
+      {children}
+    </Content>
+  </>
 )
 export default Footer

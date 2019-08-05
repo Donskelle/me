@@ -3,13 +3,13 @@ import styled from 'styled-components'
 import tw from 'tailwind.macro'
 import { useStaticQuery, graphql } from 'gatsby'
 
-import { Content } from '../components/elements'
+import { Content, ContentBG } from '../components/elements'
+import { colors } from '../../tailwind'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
-
-export default ({ offset = 0 }) => {
+export default ({ offset }) => {
   const data = useStaticQuery(graphql`
     query {
       github {
@@ -35,16 +35,28 @@ export default ({ offset = 0 }) => {
   `)
 
   return (
-    <Content speed={0.4} offset={offset}>
-      <Wrapper>
-        Check out shit happening on Github on my awesome {data.github.viewer.starredRepositories.totalCount} long github star feed
-        {data.github.viewer.starredRepositories.nodes.map(star => (
-          <div>
-            {star.name} also liked from {star.stargazers.totalCount}{' '}
-            <a href={star.url}>Link</a>
-          </div>
-        ))}
-      </Wrapper>
-    </Content>
+    <>
+      <ContentBG bg={colors['indigo-darker']} offset={offset} speed={0.2} />
+      <Content speed={0.4} offset={offset}>
+        <Wrapper>
+          Check out hottest things happing in dev world on my{' '}
+          {data.github.viewer.starredRepositories.totalCount} long github star
+          feed
+          {data.github.viewer.starredRepositories.nodes.map(star => (
+            <div key={star.url}>
+              {star.name} also liked from{' '}
+              {star.stargazers.totalCount - 1
+                ? `${
+                    star.stargazers.totalCount - 2
+                      ? `${star.stargazers.totalCount} pros`
+                      : 'one pro'
+                  }`
+                : 'no one'}{' '}
+              <a href={star.url}>Link</a>
+            </div>
+          ))}
+        </Wrapper>
+      </Content>
+    </>
   )
 }

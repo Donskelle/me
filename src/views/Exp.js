@@ -4,7 +4,7 @@ import React from 'react'
 
 import { Content } from '../components/elements'
 
-const Exp = ({ offset = 0 }) => (
+const Exp = ({ offset }) => (
   <Content speed={0.5} offset={offset}>
     <h2>Exp</h2>
   </Content>
