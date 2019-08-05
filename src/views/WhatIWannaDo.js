@@ -10,8 +10,8 @@ const WhatIWannaDo = ({ offset }) => (
     <H2>What I wanna do?</H2>
     <article>Frontend React, Relay, Svelte 3</article>
     <article>Backend Serverless NodeJS, Prisma, Firebase</article>
-    <article>Apps React Native, Flutter, Pwa's</article>
-    <article>CMS/Shop JAMstack CMS using GraphQL</article>
+    <article>Apps React Native, Flutter, PWA</article>
+    <article>CMS/Shop JAMstack and GraphQL</article>
   </Content>
 )
 export default WhatIWannaDo

@@ -20,7 +20,7 @@ const WhatIDo = ({ offset }) => {
     <Content speed={1} offset={offset}>
       <H2 ref={ref}>What I do</H2>
       <animated.div style={props}>
-        Frontend CSS, Javascript, React, Custom Elements
+        Frontend CSS, JS, React, Custom Elements
       </animated.div>
       <animated.div style={props}>
         Backend NodeJS, PHP, MongoDB, MySQL
@@ -29,7 +29,7 @@ const WhatIDo = ({ offset }) => {
         Apps React Native, Electron, PhoneGap
       </animated.div>
       <animated.div style={props}>
-        CMS/Shop Gatsby, Magento, Xt-Commerce, Wordpress, Typo3
+        CMS/Shop Gatsby, Magento, XT-Commerce, Wordpress, Typo3
       </animated.div>
     </Content>
   )
