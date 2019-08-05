@@ -23,13 +23,8 @@ const ImgDes = styled.p`
   ${tw`text-center`};
 `
 const ImgRoll = styled(animated.div)`
-  ${tw`rounded-full shadow-lg h-auto overflow-hidden`};
+  ${tw`rounded-full h-auto shadow-lg`};
 `
-const calc = (x, y) => [
-  -(y - window.innerHeight / 2) / 20,
-  (x - window.innerWidth / 2) / 20,
-  1.2,
-]
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
@@ -75,21 +70,16 @@ const Intro = ({ offset }) => {
               onMouseMove={({ clientX: x, clientY: y, target }) => {
                 const rect = target.getBoundingClientRect()
                 const xys = [
-                  (y - rect.top - target.offsetHeight / 2) / 4,
-                  (x - rect.left-target.offsetWidth / 2) / 4,
+                  -(y - rect.top - target.offsetHeight / 2) / 4,
+                  (x - rect.left - target.offsetWidth / 2) / 4,
                   1.4,
                 ]
-                console.log(xys)
                 set({ xys })
               }}
               onMouseLeave={() => set({ xys: [0, 0, 1] })}
             >
               <ImgRoll
                 style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
-                onMouseMove={({ clientX: x, clientY: y }) =>
-                  set({ xys: calc(x, y) })
-                }
-                onMouseLeave={() => set({ xys: [0, 0, 1] })}
               >
                 <GitImg />
               </ImgRoll>
@@ -103,12 +93,6 @@ const Intro = ({ offset }) => {
                 <GitImg />
               </ImgRoll>
             </ImgWrapper>
-            {/* <FrontImg
-                style={{
-                  opacity,
-                  transform: transform.interpolate(t => `${t} rotateX(180deg)`),
-                }}
-              /> */}
             <ImgDes>{data.github.viewer.name}</ImgDes>
             <ImgDes>working @ {data.github.viewer.company}</ImgDes>
           </Container>
