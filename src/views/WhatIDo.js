@@ -10,7 +10,6 @@ import { Content } from '../components/elements'
 
 const WhatIDo = ({ offset }) => {
   const [ref, inView] = useInView({
-    /* Optional options */
     threshold: 1,
   })
 
@@ -23,7 +22,10 @@ const WhatIDo = ({ offset }) => {
         Frontend CSS, JS, React, Custom Elements
       </animated.div>
       <animated.div style={props}>
-        Backend NodeJS, PHP, MongoDB, MySQL
+        State Managment Redux, RxJS
+      </animated.div>
+      <animated.div style={props}>
+        Backend NodeJS, PHP, MongoDB, MySQL, Prisma
       </animated.div>
       <animated.div style={props}>
         Apps React Native, Electron, PhoneGap
