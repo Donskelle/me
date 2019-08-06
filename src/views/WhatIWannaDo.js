@@ -18,7 +18,7 @@ const WhatIWannaDo = ({ offset }) => {
     <Content speed={0.6} offset={offset}>
       <H2 ref={ref}>What I wanna do?</H2>
       <animated.div style={props}>Frontend React, Relay, Svelte 3</animated.div>
-      <animated.div style={props}>State Managment Relay, MobX, Apollo, Redux</animated.div>
+      <animated.div style={props}>State Managment Relay, Apollo, MobX, Redux</animated.div>
       <animated.div style={props}>
         Backend Serverless NodeJS, Prisma, Firebase
       </animated.div>
