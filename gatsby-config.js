@@ -47,16 +47,11 @@ module.exports = {
         fetchOptions: {},
       },
     },
-    // {
-    //   resolve: 'gatsby-source-google-sheets',
-    //   options: {
-    //     spreadsheetId: '1-GXF6ztaTmemsfjjRbWZpoyqxLfOdEWIJXG1HXBldFA',
-    //     worksheetTitle: 'Sheet1',
-    //     credentials: gCredentials,
-    //   },
-    // },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "UA-145180610-1",
+      },
+    },
   ],
 }
