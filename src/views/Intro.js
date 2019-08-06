@@ -34,7 +34,7 @@ const calcXys = ({ clientX: x, clientY: y, target }) => {
   return [
     -(y - rect.top - target.offsetHeight / 2) / 4,
     (x - rect.left - target.offsetWidth / 2) / 4,
-    1.35,
+    1.3,
   ]
 }
 
@@ -78,7 +78,7 @@ const Intro = ({ offset }) => {
             <ImgWrapper
               style={{ transform: props.xys.interpolate(trans) }}
               onMouseMove={event => {
-                set(calcXys(event))
+                set({ xys: calcXys(event) })
               }}
               onMouseLeave={() => set({ xys: [0, 0, 1] })}
               className="imgWrapper"
