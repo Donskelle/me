@@ -4,6 +4,7 @@ import tw from 'tailwind.macro'
 import { graphql, useStaticQuery } from 'gatsby'
 import { useSpring, animated } from 'react-spring'
 
+import './intro.css'
 import { Content, ContentBG } from '../components/elements'
 import H1 from '../typo/h1'
 import Subheading from '../typo/subheading'
@@ -23,7 +24,7 @@ const ImgDes = styled.p`
   ${tw`text-center`};
 `
 const ImgRoll = styled(animated.div)`
-  ${tw`rounded-full h-auto shadow-lg overflow-hidden`};
+  ${tw`h-auto shadow-lg`};
 `
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
@@ -53,7 +54,7 @@ const Intro = ({ offset }) => {
   return (
     <>
       <ContentBG
-        bg={colors['green-darkest']}
+        bg={colors['blue-light']}
         speed={0.2}
         offset={offset}
         clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"
@@ -77,13 +78,16 @@ const Intro = ({ offset }) => {
                 set({ xys })
               }}
               onMouseLeave={() => set({ xys: [0, 0, 1] })}
+              className="imgWrapper"
             >
               <ImgRoll
                 style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
+                className="imgRoll"
               >
                 <GitImg />
               </ImgRoll>
               <ImgRoll
+                className="imgRoll"
                 style={{
                   opacity,
                   transform: transform.interpolate(t => `${t} rotateX(180deg)`),
