@@ -1,6 +1,6 @@
 .imgRoll {
-  transition: box-shadow 1s;
+  transition: box-shadow .4;
 }
 .imgWrapper:hover .imgRoll {
-  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.575) !important;
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.4) !important;
 }

@@ -43,7 +43,7 @@ export default ({ offset }) => {
         <Wrapper>
           <H2>Interessting Repos on Github</H2>
           <Subheading>
-            Check out hottest things happing in dev world on my{' '}
+            Check out hottest things happing in dev community on my{' '}
             {data.github.viewer.starredRepositories.totalCount} long github star
             feed
           </Subheading>

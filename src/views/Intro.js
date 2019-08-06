@@ -29,6 +29,15 @@ const ImgRoll = styled(animated.div)`
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
 
+const calcXys = ({ clientX: x, clientY: y, target }) => {
+  const rect = target.getBoundingClientRect()
+  return [
+    -(y - rect.top - target.offsetHeight / 2) / 4,
+    (x - rect.left - target.offsetWidth / 2) / 4,
+    1.35,
+  ]
+}
+
 const Intro = ({ offset }) => {
   const data = useStaticQuery(graphql`
     query {
@@ -68,14 +77,8 @@ const Intro = ({ offset }) => {
           <Container onClick={() => setFlip(state => !state)}>
             <ImgWrapper
               style={{ transform: props.xys.interpolate(trans) }}
-              onMouseMove={({ clientX: x, clientY: y, target }) => {
-                const rect = target.getBoundingClientRect()
-                const xys = [
-                  -(y - rect.top - target.offsetHeight / 2) / 4,
-                  (x - rect.left - target.offsetWidth / 2) / 4,
-                  1.4,
-                ]
-                set({ xys })
+              onMouseMove={event => {
+                set(calcXys(event))
               }}
               onMouseLeave={() => set({ xys: [0, 0, 1] })}
               className="imgWrapper"
