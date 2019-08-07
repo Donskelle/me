@@ -24,7 +24,7 @@ const ImgDes = styled.p`
   ${tw`text-center`};
 `
 const ImgRoll = styled(animated.div)`
-  ${tw`h-auto shadow-lg`};
+  ${tw`h-auto shadow-lg rounded-full overflow-hidden`};
 `
 const trans = (x, y, s) =>
   `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`
