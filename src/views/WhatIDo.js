@@ -4,7 +4,7 @@ import { useTrail, animated } from 'react-spring'
 
 // import styled from 'styled-components'
 // import tw from 'tailwind.macro'
-
+// import { contentful, css3, flutter } from '../images'
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import doList from '../data/do'
@@ -18,6 +18,9 @@ const WhatIDo = ({ offset }) => {
   return (
     <Content speed={1} offset={offset}>
       <H2 ref={ref}>What I do</H2>
+      {/* <img src={contentful} alt="Contentful" />
+      <img src={css3} alt="css3" />
+      <img src={flutter} alt="flutter" /> */}
 
       {trail.map((props, i) => (
         <animated.div key={doList[i].name} style={props}>

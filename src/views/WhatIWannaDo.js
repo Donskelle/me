@@ -19,7 +19,7 @@ const WhatIWannaDo = ({ offset }) => {
 
   return (
     <Content speed={0.6} offset={offset}>
-      <H2 ref={ref}>What I wanna do?</H2>
+      <H2 ref={ref}>What I would love to do?</H2>
       {trail.map((props, i) => (
         <animated.div key={wannaDoList[i].name} style={props}>
           {wannaDoList[i].name} {wannaDoList[i].list.join(', ')}
