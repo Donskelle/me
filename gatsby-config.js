@@ -1,9 +1,7 @@
-// const gCredentials = require('./gkey.json')
-
 module.exports = {
   siteMetadata: {
     title: `Donskelle - Frontend Developer Hamburg`,
-    description: `A frontend developer based in Hamburg`,
+    description: `A frontend developer in Hamburg`,
     author: `@donskelle`,
   },
   pathPrefix: '/me',
@@ -22,13 +20,13 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Donskelle Web App`,
+        name: `Donskelle Dev`,
         short_name: `Donskelle`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
+        background_color: `#2079c7`,
+        theme_color: `#2079c7`,
         display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/gatsby-icon.png`,
       },
     },
     {
@@ -36,21 +34,25 @@ module.exports = {
       options: {
         typeName: 'GitHub',
         fieldName: 'github',
-        // Url to query from
         url: 'https://api.github.com/graphql',
-        // HTTP headers
         headers: {
-          // Learn about environment variables: https://gatsby.dev/env-vars
           Authorization: `bearer ${process.env.GITHUB_TOKEN_READ}`,
         },
-        // Additional options to pass to node-fetch
         fetchOptions: {},
       },
     },
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        trackingId: "UA-145180610-1",
+        trackingId: 'UA-145180610-1',
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-react-svg',
+      options: {
+        rule: {
+          include: /svg/,
+        },
       },
     },
   ],

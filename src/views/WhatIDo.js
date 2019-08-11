@@ -4,7 +4,7 @@ import { useTrail, animated } from 'react-spring'
 
 // import styled from 'styled-components'
 // import tw from 'tailwind.macro'
-// import { contentful, css3, flutter } from '../images'
+// import { Contentful } from '../images'
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import doList from '../data/do'
@@ -12,6 +12,7 @@ import doList from '../data/do'
 const WhatIDo = ({ offset }) => {
   const [ref, inView] = useInView({
     threshold: 1,
+    triggerOnce: true,
   })
   const trail = useTrail(doList.length, { opacity: inView ? 1 : 0 })
 

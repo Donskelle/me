@@ -9,13 +9,12 @@ import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import wannaDoList from '../data/wannaDo'
 
-
 const WhatIWannaDo = ({ offset }) => {
   const [ref, inView] = useInView({
     threshold: 1,
+    triggerOnce: true,
   })
   const trail = useTrail(wannaDoList.length, { opacity: inView ? 1 : 0 })
-
 
   return (
     <Content speed={0.6} offset={offset}>
