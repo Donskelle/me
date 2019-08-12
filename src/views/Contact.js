@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 import TextField from '@material-ui/core/TextField'
+import { animated } from 'react-spring'
 
-// import styled from 'styled-components'
-// import tw from 'tailwind.macro'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
 
 import {
   Content,
@@ -14,11 +15,24 @@ import {
 import { colors, textSizes } from '../../tailwind'
 import H2 from '../typo/h2'
 
+// import hook from '../sound/hook.mp3'
+// const AnimatedHeader = styled(animated.h1)`
+
+const HookDiv = styled(animated.div)`
+  background: green;
+`
+const HookWrapper = styled(animated.div)`
+  ${tw`absolute`}
+  top: calc(50% - 2px);
+  right: 0;
+  height: 5px;
+  background: black;
+  width: 30px;
+`
+
 const Contact = ({ offset }) => {
   const [hidden, setHidden] = React.useState(false)
-  const handleChange = () => {
-    window.setTimeout(() => setHidden(true), 500)
-  }
+  const handleChange = () => setHidden(true)
 
   return (
     <>
@@ -51,32 +65,31 @@ const Contact = ({ offset }) => {
       </ContentBG>
       <Content speed={0.5} offset={offset}>
         <H2>Lets get in touch !</H2>
-        {hidden ? (
-          ''
-        ) : (
-          <>
-            <TextField
-              label="Name"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-            />
-            <TextField
-              label="E-Mail"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-            />
-            <TextField
-              label="Nachricht"
-              margin="normal"
-              variant="outlined"
-              onChange={handleChange}
-              multiline
-              rows="4"
-            />
-          </>
-        )}
+        <HookDiv>
+          <TextField
+            label="Name"
+            margin="normal"
+            variant="outlined"
+            onChange={handleChange}
+          />
+          <TextField
+            label="E-Mail"
+            margin="normal"
+            variant="outlined"
+            onChange={handleChange}
+          />
+          <TextField
+            label="Nachricht"
+            margin="normal"
+            variant="outlined"
+            onChange={handleChange}
+            multiline
+            rows="4"
+          />
+        </HookDiv>
+        <HookWrapper>
+          {/* <Hook></Hook> */}
+        </HookWrapper>
       </Content>
     </>
   )
