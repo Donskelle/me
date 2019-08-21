@@ -57,13 +57,17 @@ const Intro = ({ offset }) => {
   })
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 40 },
+    config: { mass: 5},
   }))
 
   return (
     <>
       <ContentBG
-        bg={colors['blue-light']}
+        bg={`
+          linear-gradient(45deg, ${colors['blue-darkest']}, transparent), 
+          repeating-linear-gradient(45deg, ${colors['blue-light']} 0%, ${colors['blue-light']} 5%, transparent 5%, transparent 10%),
+          ${colors['blue-darker']} repeating-linear-gradient(-45deg, ${colors['blue-dark']} 0%, ${colors['blue-dark']} 5%, transparent 5%, transparent 10%);
+        `}
         speed={0.2}
         offset={offset}
         clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"

@@ -1,7 +1,7 @@
 const wannaDoList = [
   {
     name: 'Frontend',
-    list: ['HOOOKS', 'Relay', 'Svelte 3'],
+    list: ['React', 'Relay', 'Svelte 3'],
   },
   {
     name: 'State-Managment',
@@ -16,7 +16,7 @@ const wannaDoList = [
     list: ['PWA', 'React Native', 'Flutter'],
   },
   {
-    name: 'CMS-Shop',
+    name: 'CMS/Shop',
     list: ['JAMstack based with GraphQL'],
   },
 ]
