@@ -17,6 +17,24 @@ const Wrapper = styled.div`
 const Container = styled.div`
   ${tw`flex-1 self-stretch`};
 `
+const ContentStyledBG = styled(ContentBG)`
+  background: linear-gradient(45deg, ${colors['blue-darkest']}, transparent),
+    repeating-linear-gradient(
+      45deg,
+      ${colors['blue-light']} 0%,
+      ${colors['blue-light']} 5%,
+      transparent 5%,
+      transparent 10%
+    ),
+    ${colors['blue-darker']}
+      repeating-linear-gradient(
+        -45deg,
+        ${colors['blue-dark']} 0%,
+        ${colors['blue-dark']} 5%,
+        transparent 5%,
+        transparent 10%
+      );
+`
 const ImgWrapper = styled(animated.div)`
   ${tw`w-32 xl:w-48 mx-auto`};
 `
@@ -62,16 +80,7 @@ const Intro = ({ offset }) => {
 
   return (
     <>
-      <ContentBG
-        bg={`
-          linear-gradient(45deg, ${colors['blue-darkest']}, transparent), 
-          repeating-linear-gradient(45deg, ${colors['blue-light']} 0%, ${
-          colors['blue-light']
-        } 5%, transparent 5%, transparent 10%),
-          ${colors['blue-darker']} repeating-linear-gradient(-45deg, ${
-          colors['blue-dark']
-        } 0%, ${colors['blue-dark']} 5%, transparent 5%, transparent 10%);
-        `}
+      <ContentStyledBG
         speed={0.2}
         offset={offset}
         clipPath="polygon(0 16%, 100% 4%, 100% 82%, 0 94%)"

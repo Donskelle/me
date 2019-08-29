@@ -7,6 +7,7 @@ import { Content, ContentBG } from '../components/elements'
 import { colors } from '../../tailwind'
 import H2 from '../typo/h2'
 import Subheading from '../typo/subheading'
+import { isMobile } from '../hooks/isMobile'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -35,6 +36,10 @@ export default ({ offset }) => {
       }
     }
   `)
+  const mobile = isMobile()
+  const repos = mobile
+    ? data.github.viewer.starredRepositories.nodes.slice(0, 10)
+    : data.github.viewer.starredRepositories.nodes
 
   return (
     <>
@@ -47,17 +52,10 @@ export default ({ offset }) => {
             {data.github.viewer.starredRepositories.totalCount} long github star
             feed
           </Subheading>
-          {data.github.viewer.starredRepositories.nodes.map(star => (
+          {repos.map(star => (
             <div key={star.url}>
-              {star.name} also liked from{' '}
-              {star.stargazers.totalCount - 1
-                ? `${
-                    star.stargazers.totalCount - 2
-                      ? `${star.stargazers.totalCount} pros`
-                      : 'one pro'
-                  }`
-                : 'no one'}{' '}
-              <a href={star.url}>Link</a>
+              {star.name} {star.description}
+              Likes {star.stargazers.totalCount} - <a href={star.url}>Link</a>
             </div>
           ))}
         </Wrapper>

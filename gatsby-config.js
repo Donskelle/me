@@ -38,7 +38,6 @@ module.exports = {
         headers: {
           Authorization: `bearer ${process.env.GITHUB_TOKEN_READ}`,
         },
-        fetchOptions: {},
       },
     },
     {
@@ -51,7 +50,7 @@ module.exports = {
       resolve: 'gatsby-plugin-react-svg',
       options: {
         rule: {
-          include: /svg/,
+          include: /img\/svg/,
         },
       },
     },
