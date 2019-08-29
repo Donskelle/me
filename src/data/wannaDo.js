@@ -1,7 +1,7 @@
 const wannaDoList = [
   {
     name: 'Frontend',
-    list: ['React', 'Relay', 'Svelte 3'],
+    list: ['Compile Time Frameworks', 'React Relay', 'Svelte 3'],
   },
   {
     name: 'State-Managment',

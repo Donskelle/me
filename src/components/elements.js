@@ -3,7 +3,6 @@ import styled, { keyframes, css } from 'styled-components'
 import tw from 'tailwind.macro'
 import { ParallaxLayer } from 'react-spring/renderprops-addons'
 
-import { textSizes } from '../../tailwind'
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50 overflow-y-hidden flex-col`};
@@ -21,16 +20,6 @@ const Wrapper = styled.span`
   top: ${props => props.top};
   font-size: ${props => props.size};
 `
-
-export const Emoji = ({ left, top, hiddenMobile, emoji }) => {
-  const randomSize = Math.floor(Math.random() * textSizes.length)
-  const size = textSizes[Object.keys(textSizes)[randomSize]]
-  return (
-    <Wrapper left={left} top={top} hiddenMobile={hiddenMobile} fontSize={size}>
-      {emoji}
-    </Wrapper>
-  )
-}
 
 const upDown = keyframes`
   from {

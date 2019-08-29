@@ -57,7 +57,7 @@ const Intro = ({ offset }) => {
   })
   const [props, set] = useSpring(() => ({
     xys: [0, 0, 1],
-    config: { mass: 5},
+    config: { mass: 5 },
   }))
 
   return (
@@ -65,8 +65,12 @@ const Intro = ({ offset }) => {
       <ContentBG
         bg={`
           linear-gradient(45deg, ${colors['blue-darkest']}, transparent), 
-          repeating-linear-gradient(45deg, ${colors['blue-light']} 0%, ${colors['blue-light']} 5%, transparent 5%, transparent 10%),
-          ${colors['blue-darker']} repeating-linear-gradient(-45deg, ${colors['blue-dark']} 0%, ${colors['blue-dark']} 5%, transparent 5%, transparent 10%);
+          repeating-linear-gradient(45deg, ${colors['blue-light']} 0%, ${
+          colors['blue-light']
+        } 5%, transparent 5%, transparent 10%),
+          ${colors['blue-darker']} repeating-linear-gradient(-45deg, ${
+          colors['blue-dark']
+        } 0%, ${colors['blue-dark']} 5%, transparent 5%, transparent 10%);
         `}
         speed={0.2}
         offset={offset}
