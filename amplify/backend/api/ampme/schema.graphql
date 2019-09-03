@@ -1,6 +1,7 @@
-type Track @model {
+type Track @model @key(name: "ByDate", fields: ["createdAt"]) @versioned {
   id: ID!
   addedBy: String!
+  createdAt: AWSDateTime!
   youtubeId: String!
 }
 type Player @model {

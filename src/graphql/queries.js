@@ -5,6 +5,9 @@ export const youtubesearch = `query Youtubesearch($search: String) {
   youtubesearch(search: $search) {
     youtubeId
     title
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -12,7 +15,9 @@ export const getTrack = `query GetTrack($id: ID!) {
   getTrack(id: $id) {
     id
     addedBy
+    createdAt
     youtubeId
+    version
   }
 }
 `;
@@ -25,7 +30,9 @@ export const listTracks = `query ListTracks(
     items {
       id
       addedBy
+      createdAt
       youtubeId
+      version
     }
     nextToken
   }
@@ -39,12 +46,16 @@ export const getPlayer = `query GetPlayer($id: ID!) {
     currentTrack {
       id
       addedBy
+      createdAt
       youtubeId
+      version
     }
     playlist {
       id
       addedBy
+      createdAt
       youtubeId
+      version
     }
   }
 }
@@ -62,12 +73,16 @@ export const listPlayers = `query ListPlayers(
       currentTrack {
         id
         addedBy
+        createdAt
         youtubeId
+        version
       }
       playlist {
         id
         addedBy
+        createdAt
         youtubeId
+        version
       }
     }
     nextToken
