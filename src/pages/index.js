@@ -1,6 +1,6 @@
 import React from 'react'
 import { Parallax } from 'react-spring/renderprops-addons'
-import Amplify from '@aws-amplify/api'
+import Amplify from 'aws-amplify'
 
 import SEO from '../components/seo'
 import GlobalStyle from '../styles/global'

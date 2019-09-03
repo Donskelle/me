@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "author": "Donskelle <donskelle@gmail.com>",
   "dependencies": {
-    "@aws-amplify/api": "^1.0.42",
     "@material-ui/core": "^4.3.1",
     "aws-amplify": "^1.1.36",
     "babel-plugin-styled-components": "^1.10.0",

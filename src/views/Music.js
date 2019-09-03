@@ -1,9 +1,10 @@
 import React from 'react'
+
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import { useTracks } from '../hooks/runtime/tracks';
 
-const WhatIDo = ({ offset }) => {
+const Muzzak = ({ offset }) => {
   const tracks = useTracks()
   return (
     <Content speed={1} offset={offset}>
@@ -16,4 +17,4 @@ const WhatIDo = ({ offset }) => {
     </Content>
   )
 }
-export default WhatIDo
+export default Muzzak

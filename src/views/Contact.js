@@ -1,9 +1,7 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField'
 import { animated } from 'react-spring'
-
 import styled from 'styled-components'
-import tw from 'tailwind.macro'
 
 import { Content, ContentBG } from '../components/elements'
 import { colors } from '../../tailwind'
@@ -11,13 +9,12 @@ import H2 from '../typo/h2'
 
 
 const HookDiv = styled(animated.div)`
-  background: green;
 `
 
 const Contact = ({ offset }) => {
-  const sendMail = () => {
+  // const sendMail = () => {
 
-  }
+  // }
 
   return (
     <>
