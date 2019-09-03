@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { graphql, useStaticQuery } from 'gatsby'
 import { useSpring, animated } from 'react-spring'
 
 import './intro.css'
@@ -10,6 +9,7 @@ import H1 from '../typo/h1'
 import Subheading from '../typo/subheading'
 import { colors } from '../../tailwind'
 import GitImg from '../components/gitimg'
+import {useGithubInfo} from '../hooks/static/githubInfo'
 
 const Wrapper = styled.div`
   ${tw`w-full  text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
@@ -57,16 +57,7 @@ const calcXys = ({ clientX: x, clientY: y, target }) => {
 }
 
 const Intro = ({ offset }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      github {
-        viewer {
-          name
-          company
-        }
-      }
-    }
-  `)
+  const info = useGithubInfo();
   const [flipped, setFlip] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -117,8 +108,8 @@ const Intro = ({ offset }) => {
                 <GitImg />
               </ImgRoll>
             </ImgWrapper>
-            <ImgDes>{data.github.viewer.name}</ImgDes>
-            <ImgDes>working @ {data.github.viewer.company}</ImgDes>
+            <ImgDes>{info.name}</ImgDes>
+            <ImgDes>working @ {info.company}</ImgDes>
           </Container>
         </Wrapper>
       </Content>

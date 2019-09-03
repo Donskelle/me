@@ -3,7 +3,7 @@ const axios = require('axios')
 exports.handler = (event, context) => {
   axios
     .get(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${'test'}&key=${
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${event.search}&key=${
         process.env.YOUTUBE_APIKEY
       }`,
     )

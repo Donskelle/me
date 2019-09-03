@@ -26,7 +26,7 @@ const IndexPage = () => (
       keywords={[`javascript`, `hamburg`, `frontend`]}
     />
 
-    <Parallax pages={6}>
+    <Parallax pages={7}>
       <Intro offset={0} />
       <Music offset={1} />
       <WhatIDo offset={2} />
