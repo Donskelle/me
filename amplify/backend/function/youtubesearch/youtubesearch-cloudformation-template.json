@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "ampme-dev-20190902105224-deployment",
-					"S3Key": "amplify-builds/youtubesearch-684779465832665a3558-build.zip"
+					"S3Key": "amplify-builds/youtubesearch-354b6c6d444630393451-build.zip"
 				}
 			}
 		},

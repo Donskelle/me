@@ -1,4 +1,4 @@
-type Track @model @key(name: "ByDate", fields: ["createdAt"]) @versioned {
+type Track @model @key(name: "ByDate", fields: ["createdAt"], queryField: "tracksByDate"){
   id: ID!
   addedBy: String!
   createdAt: AWSDateTime!
@@ -6,10 +6,9 @@ type Track @model @key(name: "ByDate", fields: ["createdAt"]) @versioned {
 }
 type Player @model {
   id: ID!
-  time: Int!
+  startTime: AWSDateTime!
   status: PlayerStatus!
   currentTrack: Track
-  playlist: [Track!]
 }
 enum PlayerStatus {
   PAUSE

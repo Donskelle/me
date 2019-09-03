@@ -1,9 +1,11 @@
 const axios = require('axios')
 
 exports.handler = (event, context) => {
+  
+  const searchString = event.arguments ? event.arguments.search : 'Captial Bra'
   axios
     .get(
-      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${event.search}&key=${
+      `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchString)}&key=${
         process.env.YOUTUBE_APIKEY
       }`,
     )

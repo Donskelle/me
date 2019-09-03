@@ -7,7 +7,6 @@ export const onCreateTrack = `subscription OnCreateTrack {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
@@ -17,7 +16,6 @@ export const onUpdateTrack = `subscription OnUpdateTrack {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
@@ -27,28 +25,19 @@ export const onDeleteTrack = `subscription OnDeleteTrack {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
 export const onCreatePlayer = `subscription OnCreatePlayer {
   onCreatePlayer {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
@@ -56,21 +45,13 @@ export const onCreatePlayer = `subscription OnCreatePlayer {
 export const onUpdatePlayer = `subscription OnUpdatePlayer {
   onUpdatePlayer {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
@@ -78,21 +59,13 @@ export const onUpdatePlayer = `subscription OnUpdatePlayer {
 export const onDeletePlayer = `subscription OnDeletePlayer {
   onDeletePlayer {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }

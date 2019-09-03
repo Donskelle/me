@@ -17,7 +17,6 @@ export const getTrack = `query GetTrack($id: ID!) {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
@@ -32,7 +31,6 @@ export const listTracks = `query ListTracks(
       addedBy
       createdAt
       youtubeId
-      version
     }
     nextToken
   }
@@ -41,21 +39,13 @@ export const listTracks = `query ListTracks(
 export const getPlayer = `query GetPlayer($id: ID!) {
   getPlayer(id: $id) {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
@@ -68,22 +58,38 @@ export const listPlayers = `query ListPlayers(
   listPlayers(filter: $filter, limit: $limit, nextToken: $nextToken) {
     items {
       id
-      time
+      startTime
       status
       currentTrack {
         id
         addedBy
         createdAt
         youtubeId
-        version
       }
-      playlist {
-        id
-        addedBy
-        createdAt
-        youtubeId
-        version
-      }
+    }
+    nextToken
+  }
+}
+`;
+export const tracksByDate = `query TracksByDate(
+  $createdAt: AWSDateTime
+  $sortDirection: ModelSortDirection
+  $filter: ModelTrackFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  tracksByDate(
+    createdAt: $createdAt
+    sortDirection: $sortDirection
+    filter: $filter
+    limit: $limit
+    nextToken: $nextToken
+  ) {
+    items {
+      id
+      addedBy
+      createdAt
+      youtubeId
     }
     nextToken
   }

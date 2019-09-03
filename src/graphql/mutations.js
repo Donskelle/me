@@ -7,7 +7,6 @@ export const createTrack = `mutation CreateTrack($input: CreateTrackInput!) {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
@@ -17,7 +16,6 @@ export const updateTrack = `mutation UpdateTrack($input: UpdateTrackInput!) {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
@@ -27,28 +25,19 @@ export const deleteTrack = `mutation DeleteTrack($input: DeleteTrackInput!) {
     addedBy
     createdAt
     youtubeId
-    version
   }
 }
 `;
 export const createPlayer = `mutation CreatePlayer($input: CreatePlayerInput!) {
   createPlayer(input: $input) {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
@@ -56,21 +45,13 @@ export const createPlayer = `mutation CreatePlayer($input: CreatePlayerInput!) {
 export const updatePlayer = `mutation UpdatePlayer($input: UpdatePlayerInput!) {
   updatePlayer(input: $input) {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
@@ -78,21 +59,13 @@ export const updatePlayer = `mutation UpdatePlayer($input: UpdatePlayerInput!) {
 export const deletePlayer = `mutation DeletePlayer($input: DeletePlayerInput!) {
   deletePlayer(input: $input) {
     id
-    time
+    startTime
     status
     currentTrack {
       id
       addedBy
       createdAt
       youtubeId
-      version
-    }
-    playlist {
-      id
-      addedBy
-      createdAt
-      youtubeId
-      version
     }
   }
 }
