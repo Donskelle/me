@@ -19,7 +19,7 @@ const Muzzak = ({ offset }) => {
   useEffect(() => {
     if (tracks && tracks.length) {
       const index = tracks.length - 1
-      setUrl(extendYoutubeUrl(tracks[index].youtubeId))
+      switchTrack(tracks[index].youtubeId)
       setPlaying(true)
     }
   }, [tracks])
