@@ -9,6 +9,20 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
+      resolve: 'gatsby-source-graphql',
+      options: {
+        // This type will contain remote schema Query type
+        typeName: 'MUZZAK',
+        // This is field under which it's accessible
+        fieldName: 'muzzak',
+        // Url to query from
+        url: process.env.ME_GQ_ENDPOINT,
+        headers: {
+          'x-api-key': process.env.ME_AWS_APIKEY,
+        },
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,

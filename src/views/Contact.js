@@ -9,21 +9,16 @@ import { Content, ContentBG } from '../components/elements'
 import { colors } from '../../tailwind'
 import H2 from '../typo/h2'
 
-// import hook from '../sound/hook.mp3'
 
 const HookDiv = styled(animated.div)`
   background: green;
 `
-const HookWrapper = styled(animated.div)`
-  ${tw`absolute`}
-  top: calc(50% - 2px);
-  right: 0;
-  height: 5px;
-  background: black;
-  width: 30px;
-`
 
 const Contact = ({ offset }) => {
+  const sendMail = () => {
+
+  }
+
   return (
     <>
       <ContentBG speed={0.2} offset={offset} bg={colors['blue-light']} />
@@ -44,11 +39,12 @@ const Contact = ({ offset }) => {
             label="Nachricht"
             margin="normal"
             variant="outlined"
+            onChange
             multiline
             rows="4"
           />
+
         </HookDiv>
-        <HookWrapper>{/* <Hook></Hook> */}</HookWrapper>
       </Content>
     </>
   )

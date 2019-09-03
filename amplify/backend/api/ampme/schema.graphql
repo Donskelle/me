@@ -1,0 +1,26 @@
+type Track @model {
+  id: ID!
+  addedBy: String!
+  youtubeId: String!
+}
+type Player @model {
+  id: ID!
+  time: Int!
+  status: PlayerStatus!
+  currentTrack: Track
+  playlist: [Track!]
+}
+enum PlayerStatus {
+  PAUSE
+  PLAYING
+}
+type Query {
+  youtubesearch(search: String): [YoutubeResult!] @function(name: "youtubesearch-${env}")
+}
+type YoutubeResult {
+  youtubeId: String!,
+  title: String!,
+  publishedAt: String!
+  description: String
+  channelTitle: String!
+}
