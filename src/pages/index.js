@@ -1,6 +1,6 @@
 import React from 'react'
 import { Parallax } from 'react-spring/renderprops-addons'
-import API from '@aws-amplify/api'
+import Amplify from '@aws-amplify/api'
 
 import SEO from '../components/seo'
 import GlobalStyle from '../styles/global'
@@ -15,9 +15,9 @@ import Music from '../views/Music'
 import awsconfig from '../aws-exports';
 
 
-API.configure(awsconfig);
+Amplify.configure(awsconfig);
 
-
+// Configure a custom GraphQL endpoint
 const IndexPage = () => (
   <>
     <GlobalStyle />

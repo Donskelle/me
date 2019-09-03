@@ -39,7 +39,6 @@ const Contact = ({ offset }) => {
             label="Nachricht"
             margin="normal"
             variant="outlined"
-            onChange
             multiline
             rows="4"
           />

@@ -1,9 +1,19 @@
-import { graphql, useStaticQuery,  } from 'gatsby'
-import {listTracks} from '../graphql/queries'
+import { graphql, useStaticQuery } from 'gatsby'
+// import { listTracks } from '../../graphql/queries'
 
-export const tracks = () => {
+export const useStaticTracks = () => {
   const data = useStaticQuery(graphql`
-    ${listTracks}
+    {
+      muzzak {
+        listTracks {
+          items {
+            addedBy
+            id
+            youtubeId
+          }
+        }
+      }
+    }
   `)
-  return data.listTracks.items
+  return data.muzzak.listTracks.items
 }
