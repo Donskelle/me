@@ -23,4 +23,15 @@ type YoutubeResult {
   publishedAt: String!
   description: String
   channelTitle: String!
+  thumbnails: youtubeThumbs
+}
+type youtubeThumbs {
+  default: thumbnail
+  medium: thumbnail
+  high: thumbnail
+}
+type thumbnail {
+  url: String!,
+  width: Int!,
+  height: Int!,
 }

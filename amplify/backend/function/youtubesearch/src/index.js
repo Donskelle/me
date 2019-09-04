@@ -16,6 +16,7 @@ exports.handler = (event, context) => {
         title: snippet.title,
         publishedAt: snippet.publishedAt,
         description: snippet.description,
+        thumbnails: snippet.thumbnails
       }))
 
       context.done(null, videos)

@@ -8,6 +8,23 @@ export const youtubesearch = `query Youtubesearch($search: String) {
     publishedAt
     description
     channelTitle
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
   }
 }
 `;
