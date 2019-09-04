@@ -12,7 +12,7 @@ const Muzzak = ({ offset }) => {
   const [playing, setPlaying] = useState(false)
   const tracks = useTracks()
 
-  const switchTrack = (id) => {
+  const switchTrack = id => {
     setUrl(extendYoutubeUrl(id))
   }
 

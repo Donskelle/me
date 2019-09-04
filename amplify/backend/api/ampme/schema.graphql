@@ -1,12 +1,12 @@
 type Track @model @key(name: "ByDate", fields: ["createdAt"], queryField: "tracksByDate"){
   id: ID!
   addedBy: String!
-  createdAt: AWSDateTime!
+  createdAt: AWSDateTime
   youtubeId: String!
 }
 type Player @model {
   id: ID!
-  startTime: AWSDateTime!
+  startTime: AWSDateTime
   status: PlayerStatus!
   currentTrack: Track
 }
