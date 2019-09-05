@@ -4,19 +4,23 @@ type Track @model @key(name: "ByDate", fields: ["createdAt"], queryField: "track
   createdAt: AWSDateTime
   youtubeId: String!
 }
+
 type Player @model {
   id: ID!
   startTime: AWSDateTime
   status: PlayerStatus!
   currentTrack: Track
 }
+
 enum PlayerStatus {
   PAUSE
   PLAYING
 }
+
 type Query {
   youtubesearch(search: String): [YoutubeResult!] @function(name: "youtubesearch-${env}")
 }
+
 type YoutubeResult {
   youtubeId: String!,
   title: String!,
@@ -25,11 +29,13 @@ type YoutubeResult {
   channelTitle: String!
   thumbnails: youtubeThumbs
 }
+
 type youtubeThumbs {
   default: thumbnail
   medium: thumbnail
   high: thumbnail
 }
+
 type thumbnail {
   url: String!,
   width: Int!,
