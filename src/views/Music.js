@@ -42,7 +42,7 @@ const Muzzak = ({ offset }) => {
     <Content speed={1} offset={offset}>
       <H2>Add some music here</H2>
       {tracks.map(track => (
-        <div key={track.id} onClick={() => addTrack(track.youtubeId)}>
+        <div key={track.id} onClick={() => switchTrack(track.youtubeId)}>
           {track.youtubeId}
         </div>
       ))}
