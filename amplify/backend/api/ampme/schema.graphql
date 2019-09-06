@@ -9,7 +9,7 @@ type Player @model {
   id: ID!
   startTime: AWSDateTime
   status: PlayerStatus!
-  currentTrack: Track
+  currentTrack: Track @connection
 }
 
 enum PlayerStatus {
