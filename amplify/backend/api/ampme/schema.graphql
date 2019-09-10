@@ -18,7 +18,7 @@ enum PlayerStatus {
 }
 
 type Query {
-  youtubesearch(search: String): [YoutubeResult!] @function(name: "youtubesearch-${env}")
+  youtubesearch(search: String): [YoutubeResult] @function(name: "youtubesearch-${env}")
 }
 
 type YoutubeResult {

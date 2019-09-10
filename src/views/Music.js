@@ -1,21 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { API, graphqlOperation } from 'aws-amplify'
+import styled from 'styled-components'
+import tw from 'tailwind.macro'
 
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
-import { useTracks } from '../hooks/runtime/tracks'
+import { useSearchTracks } from '../hooks/runtime/searchTracks'
 import { createTrack, updatePlayer } from '../graphql/mutations'
 import { usePlayer } from '../hooks/runtime/player'
+import { useTracks } from '../hooks/runtime/tracks'
+import subheading from '../typo/subheading'
+
+const FlexContainer = styled.div`
+  ${tw`flex w-full flex-col md:flex-row`}
+`
+const FlexContent = styled.div`
+  ${tw`md:flex-1`}
+`
 
 const extendYoutubeUrl = id => `https://www.youtube.com/watch?v=${id}`
 
 const Muzzak = ({ offset }) => {
   const [url, setUrl] = useState(null)
-  const [addYoutubeId, setAddYoutubeId] = useState('')
+  const [searchYoutubeString, setSearchYoutubeString] = useState('')
   // const [playing, setPlaying] = useState(false)
   const tracks = useTracks()
   const { status, currentTrack, startTime, playing } = usePlayer()
+  const searchResults = useSearchTracks(searchYoutubeString)
 
   const switchTrack = id => {
     API.graphql(
@@ -28,15 +40,12 @@ const Muzzak = ({ offset }) => {
     )
   }
 
-  const addTrack = () => {
-    if (addYoutubeId.length < 5) return alert('Retard')
-
+  const addTrack = id => {
     const trackDetail = {
-      youtubeId: addYoutubeId,
+      youtubeId: id,
       addedBy: 'Fabian',
     }
     API.graphql(graphqlOperation(createTrack, { input: trackDetail }))
-    setAddYoutubeId('')
   }
 
   useEffect(() => {
@@ -46,29 +55,35 @@ const Muzzak = ({ offset }) => {
     console.log(playing, currentTrack, startTime)
   }, [playing, currentTrack, startTime])
 
-  // useEffect(() => {
-  //   if (tracks && tracks.length) {
-  //     const index = tracks.length - 1
-  //     switchTrack(tracks[index].youtubeId)
-  //     setPlaying(true)
-  //   }
-  // }, [tracks])
-
   return (
     <Content speed={1} offset={offset}>
-      <H2>Add some music here</H2>
-      {tracks.map(track => (
-        <div key={track.id} onClick={() => switchTrack(track.id)}>
-          {track.youtubeId}
-        </div>
-      ))}
-      <input
-        onChange={e => setAddYoutubeId(e.target.value)}
-        placeholder="YoutubeId"
-        value={addYoutubeId}
-      />
-      <button onClick={addTrack}>Add Track</button>
-      <ReactPlayer playing={playing} url={url} />
+      <H2>Serverless Music Player</H2>
+      <FlexContainer>
+        <FlexContent>
+          {tracks.map(track => (
+            <div key={track.id} onClick={() => switchTrack(track.id)}>
+              {track.youtubeId}
+            </div>
+          ))}
+          <ReactPlayer playing={playing} url={url} />
+        </FlexContent>
+        <FlexContent>
+          <subheading>Add some Music here</subheading>
+          <input
+            onChange={e => setSearchYoutubeString(e.target.value)}
+            placeholder="Search Youtube"
+            value={searchYoutubeString}
+          />
+          {searchResults.map(track => (
+            <div
+              key={track.youtubeId}
+              onClick={() => addTrack(track.youtubeId)}
+            >
+              {track.title}
+            </div>
+          ))}
+        </FlexContent>
+      </FlexContainer>
     </Content>
   )
 }
