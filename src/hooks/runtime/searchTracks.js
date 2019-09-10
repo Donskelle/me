@@ -2,30 +2,29 @@ import { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 
 import { youtubesearch } from '../../graphql/queries'
+import { useDebounce } from '../useDebounce'
 
 export function useSearchTracks(currentSearch) {
+  const search = useDebounce(currentSearch, 300)
   const [searchResult, setSearchResult] = useState([])
 
-  useEffect(() => {
-    if (currentSearch) {
+  const searchYoutube = () => {
+    if (search) {
       API.graphql(
         graphqlOperation(youtubesearch, {
-          search: currentSearch,
+          search,
         }),
       ).then(searchData => {
         setSearchResult(searchData.data.youtubesearch)
       })
+    } else {
+      setSearchResult([])
     }
-  }, [currentSearch])
+  }
+
+  useEffect(() => {
+    searchYoutube()
+  }, [search])
 
   return searchResult
-}
-
-function debounce(callback, wait) {
-  let timeout
-  return (...args) => {
-    const context = this
-    clearTimeout(timeout)
-    timeout = setTimeout(() => callback.apply(context, args), wait)
-  }
 }

@@ -10,7 +10,7 @@ import { useSearchTracks } from '../hooks/runtime/searchTracks'
 import { createTrack, updatePlayer } from '../graphql/mutations'
 import { usePlayer } from '../hooks/runtime/player'
 import { useTracks } from '../hooks/runtime/tracks'
-import subheading from '../typo/subheading'
+import SubHeading from '../typo/subheading'
 
 const FlexContainer = styled.div`
   ${tw`flex w-full flex-col md:flex-row`}
@@ -26,7 +26,7 @@ const Muzzak = ({ offset }) => {
   const [searchYoutubeString, setSearchYoutubeString] = useState('')
   // const [playing, setPlaying] = useState(false)
   const tracks = useTracks()
-  const { status, currentTrack, startTime, playing } = usePlayer()
+  const { currentTrack, startTime, playing } = usePlayer()
   const searchResults = useSearchTracks(searchYoutubeString)
 
   const switchTrack = id => {
@@ -68,7 +68,7 @@ const Muzzak = ({ offset }) => {
           <ReactPlayer playing={playing} url={url} />
         </FlexContent>
         <FlexContent>
-          <subheading>Add some Music here</subheading>
+          <SubHeading>Add some Music here</SubHeading>
           <input
             onChange={e => setSearchYoutubeString(e.target.value)}
             placeholder="Search Youtube"
