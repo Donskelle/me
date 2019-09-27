@@ -18,8 +18,6 @@ export function usePlayer() {
       }),
     ).then(playerData => {
       setPlayerStatus({ ...playerData.data.getPlayer, playing: true })
-      //   dispatch({ type: 'set', payload: tracksData.data.listTracks.items })
-      console.log(playerData)
     })
   }, [])
 

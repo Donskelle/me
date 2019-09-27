@@ -52,7 +52,6 @@ const Muzzak = ({ offset }) => {
     if (currentTrack) {
       setUrl(extendYoutubeUrl(currentTrack.youtubeId))
     }
-    console.log(playing, currentTrack, startTime)
   }, [playing, currentTrack, startTime])
 
   return (
