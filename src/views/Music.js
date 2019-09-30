@@ -22,12 +22,9 @@ const FlexContent = styled.div`
 const extendYoutubeUrl = id => `https://www.youtube.com/watch?v=${id}`
 
 const Music = ({ offset }) => {
-  const [url, setUrl] = useState(null)
   const [searchYoutubeString, setSearchYoutubeString] = useState('')
-  // const [playing, setPlaying] = useState(false)
   const tracks = useTracks()
-  // console.log( )
-  const { currentTrack, startTime, playing } = usePlayer()
+  const { currentTrack, playing } = usePlayer()
   const { searchResult, loading, error } = useSearchTracks(searchYoutubeString)
 
   const switchTrack = id => {
@@ -40,20 +37,26 @@ const Music = ({ offset }) => {
       }),
     )
   }
-
   const addTrack = id => {
+    const {
+      title,
+      channelTitle,
+      publishedAt,
+      description,
+      thumbnails,
+    } = searchResult.find(track => track.youtubeId === id)
+
     const trackDetail = {
       youtubeId: id,
       addedBy: 'Fabian',
+      title,
+      channelTitle,
+      publishedAt,
+      description,
+      thumbnails,
     }
     API.graphql(graphqlOperation(createTrack, { input: trackDetail }))
   }
-
-  useEffect(() => {
-    if (currentTrack) {
-      setUrl(extendYoutubeUrl(currentTrack.youtubeId))
-    }
-  }, [playing, currentTrack, startTime])
 
   let searchResultDom
   if (loading) {
@@ -68,6 +71,11 @@ const Music = ({ offset }) => {
     ))
   }
 
+  const url =
+    currentTrack && currentTrack.youtubeId
+      ? extendYoutubeUrl(currentTrack.youtubeId)
+      : ''
+
   return (
     <Content speed={1} offset={offset}>
       <H2>Serverless Music Player</H2>
@@ -75,7 +83,7 @@ const Music = ({ offset }) => {
         <FlexContent>
           {tracks.map(track => (
             <div key={track.id} onClick={() => switchTrack(track.id)}>
-              {track.youtubeId}
+              {track.title}
             </div>
           ))}
           <ReactPlayer playing={playing} url={url} />

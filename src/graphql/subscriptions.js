@@ -7,6 +7,27 @@ export const onCreateTrack = `subscription OnCreateTrack {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -16,6 +37,27 @@ export const onUpdateTrack = `subscription OnUpdateTrack {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -25,6 +67,27 @@ export const onDeleteTrack = `subscription OnDeleteTrack {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -38,6 +101,10 @@ export const onCreatePlayer = `subscription OnCreatePlayer {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }
@@ -52,6 +119,10 @@ export const onUpdatePlayer = `subscription OnUpdatePlayer {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }
@@ -66,6 +137,10 @@ export const onDeletePlayer = `subscription OnDeletePlayer {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }

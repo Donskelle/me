@@ -7,6 +7,27 @@ export const createTrack = `mutation CreateTrack($input: CreateTrackInput!) {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -16,6 +37,27 @@ export const updateTrack = `mutation UpdateTrack($input: UpdateTrackInput!) {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -25,6 +67,27 @@ export const deleteTrack = `mutation DeleteTrack($input: DeleteTrackInput!) {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -38,6 +101,10 @@ export const createPlayer = `mutation CreatePlayer($input: CreatePlayerInput!) {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }
@@ -52,6 +119,10 @@ export const updatePlayer = `mutation UpdatePlayer($input: UpdatePlayerInput!) {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }
@@ -66,6 +137,10 @@ export const deletePlayer = `mutation DeletePlayer($input: DeletePlayerInput!) {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }

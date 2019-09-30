@@ -9,7 +9,7 @@ import H1 from '../typo/h1'
 import Subheading from '../typo/subheading'
 import { colors } from '../../tailwind'
 import GitImg from '../components/gitimg'
-import {useGithubInfo} from '../hooks/static/githubInfo'
+import { useGithubInfo } from '../hooks/static/githubInfo'
 
 const Wrapper = styled.div`
   ${tw`w-full  text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
@@ -18,6 +18,7 @@ const Container = styled.div`
   ${tw`flex-1 self-stretch`};
 `
 const ContentStyledBG = styled(ContentBG)`
+  animation: gradientBG 15s ease infinite alternate;
   background: linear-gradient(45deg, ${colors['blue-darkest']}, transparent),
     repeating-linear-gradient(
       45deg,
@@ -34,6 +35,15 @@ const ContentStyledBG = styled(ContentBG)`
         transparent 5%,
         transparent 10%
       );
+
+  @keyframes gradientBG {
+    0% {
+      background-size: 100% 100%;
+    }
+    100% {
+      background-size: 110% 110%;
+    }
+  }
 `
 const ImgWrapper = styled(animated.div)`
   ${tw`w-32 xl:w-48 mx-auto`};
@@ -57,7 +67,7 @@ const calcXys = ({ clientX: x, clientY: y, target }) => {
 }
 
 const Intro = ({ offset }) => {
-  const info = useGithubInfo();
+  const info = useGithubInfo()
   const [flipped, setFlip] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,

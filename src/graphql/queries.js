@@ -34,6 +34,27 @@ export const getTrack = `query GetTrack($id: ID!) {
     addedBy
     createdAt
     youtubeId
+    title
+    thumbnails {
+      default {
+        url
+        width
+        height
+      }
+      medium {
+        url
+        width
+        height
+      }
+      high {
+        url
+        width
+        height
+      }
+    }
+    publishedAt
+    description
+    channelTitle
   }
 }
 `;
@@ -48,6 +69,10 @@ export const listTracks = `query ListTracks(
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
     nextToken
   }
@@ -63,6 +88,10 @@ export const getPlayer = `query GetPlayer($id: ID!) {
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
   }
 }
@@ -82,6 +111,10 @@ export const listPlayers = `query ListPlayers(
         addedBy
         createdAt
         youtubeId
+        title
+        publishedAt
+        description
+        channelTitle
       }
     }
     nextToken
@@ -107,6 +140,10 @@ export const tracksByDate = `query TracksByDate(
       addedBy
       createdAt
       youtubeId
+      title
+      publishedAt
+      description
+      channelTitle
     }
     nextToken
   }

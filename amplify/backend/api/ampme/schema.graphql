@@ -3,6 +3,11 @@ type Track @model @key(name: "ByDate", fields: ["createdAt"], queryField: "track
   addedBy: String!
   createdAt: AWSDateTime
   youtubeId: String!
+  title: String!,
+  thumbnails: youtubeThumbs
+  publishedAt: String!
+  description: String
+  channelTitle: String!
 }
 
 type Player @model {
