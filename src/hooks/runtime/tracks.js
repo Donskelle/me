@@ -5,26 +5,22 @@ import { useStaticTracks } from '../static/tracks'
 import { listTracks } from '../../graphql/queries'
 import { onCreateTrack as onCreateTrackSubcription } from '../../graphql/subscriptions'
 
-const initialState = { tracks: [] }
-
-// eslint-disable-next-line consistent-return
 function reducer(state, action) {
-  // eslint-disable-next-line default-case
   switch (action.type) {
     case 'set':
-      return { tracks: action.payload }
+      return  [...action.payload]
     case 'add':
-      return { tracks: [...state.tracks, action.payload] }
+      return [...state, action.payload]
+    default:
+      return state
   }
 }
 
 export function useTracks() {
-  const [state, dispatch] = useReducer(reducer, initialState)
   const initialTracks = useStaticTracks()
+  const [state, dispatch] = useReducer(reducer, initialTracks)
 
   useEffect(() => {
-    dispatch({ type: 'set', payload: initialTracks })
-
     API.graphql(graphqlOperation(listTracks)).then(tracksData => {
       dispatch({ type: 'set', payload: tracksData.data.listTracks.items })
     })
@@ -44,5 +40,5 @@ export function useTracks() {
     return () => subscriber.unsubscribe()
   }, [])
 
-  return state.tracks
+  return state
 }

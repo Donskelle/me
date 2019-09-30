@@ -17,7 +17,7 @@ export function usePlayer() {
         id: 'dc3c047f-f0b0-4108-9632-f029440b14b6',
       }),
     ).then(playerData => {
-      setPlayerStatus({ ...playerData.data.getPlayer, playing: true })
+      setPlayerStatus({ ...playerData.data.getPlayer, playing: false })
     })
   }, [])
 

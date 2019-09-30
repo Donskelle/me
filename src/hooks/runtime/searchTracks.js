@@ -7,24 +7,35 @@ import { useDebounce } from '../useDebounce'
 export function useSearchTracks(currentSearch) {
   const search = useDebounce(currentSearch, 300)
   const [searchResult, setSearchResult] = useState([])
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState('')
 
-  const searchYoutube = () => {
+  useEffect(() => {
     if (search) {
+      setLoading(true)
       API.graphql(
         graphqlOperation(youtubesearch, {
           search,
         }),
-      ).then(searchData => {
-        setSearchResult(searchData.data.youtubesearch)
-      })
-    } else {
-      setSearchResult([])
+      )
+        .then(searchData => {
+          setError('')
+          setSearchResult(searchData.data.youtubesearch)
+        })
+        .catch(e => {
+          setError(e)
+        })
+        .finally(() => setLoading(false))
     }
-  }
-
-  useEffect(() => {
-    searchYoutube()
   }, [search])
 
-  return searchResult
+  useEffect(() => {
+    if (!currentSearch) {
+      setSearchResult([])
+    } else {
+      setLoading(true)
+    }
+  }, [currentSearch])
+
+  return { searchResult, loading, error }
 }

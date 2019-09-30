@@ -10,7 +10,7 @@ exports.handler = (event, context, callback) => {
     )
     .then(response => {
       const videos = response.data.items
-        .filter(({ snippet, id }) => snippet && id)
+        .filter(({ snippet, id }) => snippet && id && id.videoId && snippet.channelTitle && snippet.title)
         .map(({ snippet, id }) => ({
           youtubeId: id.videoId,
           channelTitle: snippet.channelTitle,
@@ -23,7 +23,6 @@ exports.handler = (event, context, callback) => {
       context.done(null, videos)
     })
     .catch(e => {
-      // handle error
       callback(e)
     })
 }

@@ -21,13 +21,14 @@ const FlexContent = styled.div`
 
 const extendYoutubeUrl = id => `https://www.youtube.com/watch?v=${id}`
 
-const Muzzak = ({ offset }) => {
+const Music = ({ offset }) => {
   const [url, setUrl] = useState(null)
   const [searchYoutubeString, setSearchYoutubeString] = useState('')
   // const [playing, setPlaying] = useState(false)
   const tracks = useTracks()
+  // console.log( )
   const { currentTrack, startTime, playing } = usePlayer()
-  const searchResults = useSearchTracks(searchYoutubeString)
+  const { searchResult, loading, error } = useSearchTracks(searchYoutubeString)
 
   const switchTrack = id => {
     API.graphql(
@@ -54,6 +55,19 @@ const Muzzak = ({ offset }) => {
     }
   }, [playing, currentTrack, startTime])
 
+  let searchResultDom
+  if (loading) {
+    searchResultDom = 'Loading...'
+  } else if (error) {
+    searchResultDom = `Error: ${error}`
+  } else {
+    searchResultDom = searchResult.map(track => (
+      <div key={track.youtubeId} onClick={() => addTrack(track.youtubeId)}>
+        {track.title}
+      </div>
+    ))
+  }
+
   return (
     <Content speed={1} offset={offset}>
       <H2>Serverless Music Player</H2>
@@ -73,17 +87,10 @@ const Muzzak = ({ offset }) => {
             placeholder="Search Youtube"
             value={searchYoutubeString}
           />
-          {searchResults.map(track => (
-            <div
-              key={track.youtubeId}
-              onClick={() => addTrack(track.youtubeId)}
-            >
-              {track.title}
-            </div>
-          ))}
+          {searchResultDom}
         </FlexContent>
       </FlexContainer>
     </Content>
   )
 }
-export default Muzzak
+export default Music
