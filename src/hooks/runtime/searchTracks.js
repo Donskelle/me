@@ -32,6 +32,7 @@ export function useSearchTracks(currentSearch) {
   useEffect(() => {
     if (!currentSearch) {
       setSearchResult([])
+      setLoading(false)
     } else {
       setLoading(true)
     }

@@ -1,5 +1,4 @@
 import { graphql, useStaticQuery } from 'gatsby'
-// import { listTracks } from '../../graphql/queries'
 
 export const useStaticTracks = () => {
   const data = useStaticQuery(graphql`
@@ -10,6 +9,8 @@ export const useStaticTracks = () => {
             addedBy
             id
             youtubeId
+            title
+            description
           }
         }
       }

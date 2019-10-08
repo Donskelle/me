@@ -8,7 +8,7 @@ import { Content, ContentBG } from '../components/elements'
 import H1 from '../typo/h1'
 import Subheading from '../typo/subheading'
 import { colors } from '../../tailwind'
-import GitImg from '../components/gitimg'
+import GitImg from '../components/GitImg'
 import { useGithubInfo } from '../hooks/static/githubInfo'
 
 const Wrapper = styled.div`

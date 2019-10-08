@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, Suspense, lazy } from 'react'
 import ReactPlayer from 'react-player'
 import { API, graphqlOperation } from 'aws-amplify'
 import styled from 'styled-components'
@@ -6,11 +6,14 @@ import tw from 'tailwind.macro'
 
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
-import { useSearchTracks } from '../hooks/runtime/searchTracks'
-import { createTrack, updatePlayer } from '../graphql/mutations'
+import TrackList from '../components/TrackList'
+import SearchTracks from '../components/SearchTracks'
+import { updatePlayer } from '../graphql/mutations'
 import { usePlayer } from '../hooks/runtime/player'
 import { useTracks } from '../hooks/runtime/tracks'
-import SubHeading from '../typo/subheading'
+// import SubHeading from '../typo/subheading'
+
+// const LazySearchTracks = lazy(SearchTracks)
 
 const FlexContainer = styled.div`
   ${tw`flex w-full flex-col md:flex-row`}
@@ -22,12 +25,10 @@ const FlexContent = styled.div`
 const extendYoutubeUrl = id => `https://www.youtube.com/watch?v=${id}`
 
 const Music = ({ offset }) => {
-  const [searchYoutubeString, setSearchYoutubeString] = useState('')
   const tracks = useTracks()
   const { currentTrack, playing } = usePlayer()
-  const { searchResult, loading, error } = useSearchTracks(searchYoutubeString)
 
-  const switchTrack = id => {
+  const playTrack = id => {
     API.graphql(
       graphqlOperation(updatePlayer, {
         input: {
@@ -36,39 +37,6 @@ const Music = ({ offset }) => {
         },
       }),
     )
-  }
-  const addTrack = id => {
-    const {
-      title,
-      channelTitle,
-      publishedAt,
-      description,
-      thumbnails,
-    } = searchResult.find(track => track.youtubeId === id)
-
-    const trackDetail = {
-      youtubeId: id,
-      addedBy: 'Fabian',
-      title,
-      channelTitle,
-      publishedAt,
-      description,
-      thumbnails,
-    }
-    API.graphql(graphqlOperation(createTrack, { input: trackDetail }))
-  }
-
-  let searchResultDom
-  if (loading) {
-    searchResultDom = 'Loading...'
-  } else if (error) {
-    searchResultDom = `Error: ${error}`
-  } else {
-    searchResultDom = searchResult.map(track => (
-      <div key={track.youtubeId} onClick={() => addTrack(track.youtubeId)}>
-        {track.title}
-      </div>
-    ))
   }
 
   const url =
@@ -81,21 +49,16 @@ const Music = ({ offset }) => {
       <H2>Serverless Music Player</H2>
       <FlexContainer>
         <FlexContent>
-          {tracks.map(track => (
-            <div key={track.id} onClick={() => switchTrack(track.id)}>
-              {track.title}
-            </div>
-          ))}
-          <ReactPlayer playing={playing} url={url} />
+          <TrackList tracks={tracks} playTrack={playTrack} />
         </FlexContent>
         <FlexContent>
-          <SubHeading>Add some Music here</SubHeading>
-          <input
-            onChange={e => setSearchYoutubeString(e.target.value)}
-            placeholder="Search Youtube"
-            value={searchYoutubeString}
-          />
-          {searchResultDom}
+          {/* <Suspense fallback={<p>Loading...</p>}>
+            <LazySearchTracks />
+          </Suspense> */}
+          <SearchTracks />
+        </FlexContent>
+        <FlexContent>
+          <ReactPlayer playing={playing} url={url} />
         </FlexContent>
       </FlexContainer>
     </Content>
