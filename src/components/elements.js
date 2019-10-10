@@ -1,8 +1,6 @@
-import React from 'react'
 import styled, { keyframes, css } from 'styled-components'
 import tw from 'tailwind.macro'
 import { ParallaxLayer } from 'react-spring/renderprops-addons'
-
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50 overflow-y-hidden flex-col`};
@@ -11,14 +9,6 @@ export const ContentBG = styled(ParallaxLayer)`
   ${tw`absolute w-full h-full`};
   background: ${props => props.bg};
   clip-path: ${props => props.clipPath};
-`
-
-const Wrapper = styled.span`
-  ${tw`absolute`};
-  ${props => props.hiddenMobile && 'display: none;'};
-  left: ${props => props.left};
-  top: ${props => props.top};
-  font-size: ${props => props.size};
 `
 
 const upDown = keyframes`
