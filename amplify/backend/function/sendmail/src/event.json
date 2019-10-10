@@ -1,0 +1,7 @@
+{
+  "arguments": {
+    "name": "Test User",
+    "email": "test@mail.de",
+    "message": "nachricht"
+  }
+}

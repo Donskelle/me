@@ -10,7 +10,14 @@ exports.handler = (event, context, callback) => {
     )
     .then(response => {
       const videos = response.data.items
-        .filter(({ snippet, id }) => snippet && id && id.videoId && snippet.channelTitle && snippet.title)
+        .filter(
+          ({ snippet, id }) =>
+            snippet &&
+            id &&
+            id.videoId &&
+            snippet.channelTitle &&
+            snippet.title,
+        )
         .map(({ snippet, id }) => ({
           youtubeId: id.videoId,
           channelTitle: snippet.channelTitle,

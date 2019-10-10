@@ -1,3 +1,11 @@
+type Query {
+  youtubesearch(search: String): [YoutubeResult] @function(name: "youtubesearch-${env}")
+}
+
+type Mutation {
+  sendMail(name: String!, email: String!, message: String!): String! @function(name: "sendmail-${env}")
+}
+
 type Track @model @key(name: "ByDate", fields: ["createdAt"], queryField: "tracksByDate"){
   id: ID!
   addedBy: String!
@@ -20,10 +28,6 @@ type Player @model {
 enum PlayerStatus {
   PAUSE
   PLAYING
-}
-
-type Query {
-  youtubesearch(search: String): [YoutubeResult] @function(name: "youtubesearch-${env}")
 }
 
 type YoutubeResult {

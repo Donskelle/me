@@ -28,12 +28,12 @@
 				"FunctionName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"youtubesearch",
+						"sendmail",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"youtubesearch",
+									"sendmail",
 									"-",
 									{
 										"Ref": "env"
@@ -63,7 +63,7 @@
 				"Timeout": "25",
 				"Code": {
 					"S3Bucket": "ampme-dev-20190902105224-deployment",
-					"S3Key": "amplify-builds/youtubesearch-3045336f6b2f73537838-build.zip"
+					"S3Key": "amplify-builds/sendmail-6372717550334c343532-build.zip"
 				}
 			}
 		},
@@ -73,12 +73,12 @@
 				"RoleName": {
 					"Fn::If": [
 						"ShouldNotCreateEnvResources",
-						"ampmeLambdaRole6a34c5fb",
+						"ampmeLambdaRole02e703c8",
 						{
 							"Fn::Join": [
 								"",
 								[
-									"ampmeLambdaRole6a34c5fb",
+									"ampmeLambdaRole02e703c8",
 									"-",
 									{
 										"Ref": "env"
