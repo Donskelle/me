@@ -74,7 +74,7 @@ const Intro = ({ offset }) => {
     transform: `perspective(600px) rotateX(${flipped ? 180 : 0}deg)`,
     config: { mass: 5, tension: 500, friction: 80 },
   })
-  const [props, set] = useSpring(() => ({
+  const [{ xys }, set] = useSpring(() => ({
     xys: [0, 0, 1],
     config: { mass: 5 },
   }))
@@ -94,7 +94,7 @@ const Intro = ({ offset }) => {
           </Container>
           <Container onClick={() => setFlip(state => !state)}>
             <ImgWrapper
-              style={{ transform: props.xys.interpolate(trans) }}
+              style={{ transform: xys.interpolate(trans) }}
               onMouseMove={event => {
                 set({ xys: calcXys(event) })
               }}
