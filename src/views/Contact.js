@@ -7,10 +7,6 @@ import { Content, ContentBG } from '../components/elements'
 import { colors } from '../../tailwind'
 import H2 from '../typo/h2'
 
-
-const HookDiv = styled(animated.div)`
-`
-
 const Contact = ({ offset }) => {
   // const sendMail = () => {
 
@@ -21,17 +17,9 @@ const Contact = ({ offset }) => {
       <ContentBG speed={0.2} offset={offset} bg={colors['blue-light']} />
       <Content speed={0.5} offset={offset}>
         <H2>Lets get in touch !</H2>
-        <HookDiv>
-          <TextField
-            label="Name"
-            margin="normal"
-            variant="outlined"
-          />
-          <TextField
-            label="E-Mail"
-            margin="normal"
-            variant="outlined"
-          />
+        <div>
+          <TextField label="Name" margin="normal" variant="outlined" />
+          <TextField label="E-Mail" margin="normal" variant="outlined" />
           <TextField
             label="Nachricht"
             margin="normal"
@@ -39,8 +27,7 @@ const Contact = ({ offset }) => {
             multiline
             rows="4"
           />
-
-        </HookDiv>
+        </div>
       </Content>
     </>
   )

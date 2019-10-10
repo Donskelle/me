@@ -4,7 +4,7 @@ import { API, graphqlOperation } from 'aws-amplify'
 import SubHeading from '../typo/subheading'
 import { useSearchTracks } from '../hooks/runtime/searchTracks'
 import { createTrack } from '../graphql/mutations'
-import { cleanObject } from '../utils'
+import { cleanObjectReference } from '../utils'
 
 const SearchTrack = () => {
   const [searchYoutubeString, setSearchYoutubeString] = useState('')
@@ -28,7 +28,7 @@ const SearchTrack = () => {
       description,
       thumbnails,
     }
-    cleanObject(trackDetail)
+    cleanObjectReference(trackDetail)
     API.graphql(graphqlOperation(createTrack, { input: trackDetail }))
   }
 
@@ -37,6 +37,8 @@ const SearchTrack = () => {
     searchResultDom = 'Loading...'
   } else if (error) {
     searchResultDom = `Error: ${error}`
+  } else if (searchResult.length === 0 && searchYoutubeString) {
+    searchResultDom = 'Empty Result'
   } else {
     searchResultDom = searchResult.map(track => (
       <div key={track.youtubeId} onClick={() => addTrack(track.youtubeId)}>

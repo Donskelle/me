@@ -9,11 +9,24 @@ import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
 
-import { deleteTrack as deleteTrackMutation } from '../graphql/mutations'
+import {
+  deleteTrack as deleteTrackMutation,
+  updatePlayer as updatePlayerMutation,
+} from '../graphql/mutations'
 
-export default function InteractiveList({ tracks, playTrack }) {
+export default function InteractiveList({ tracks }) {
   const deleteTrack = id => {
     API.graphql(graphqlOperation(deleteTrackMutation, { input: { id } }))
+  }
+  const playTrack = id => {
+    API.graphql(
+      graphqlOperation(updatePlayerMutation, {
+        input: {
+          playerCurrentTrackId: id,
+          id: 'dc3c047f-f0b0-4108-9632-f029440b14b6',
+        },
+      }),
+    )
   }
 
   return (
@@ -21,10 +34,10 @@ export default function InteractiveList({ tracks, playTrack }) {
       {tracks.map(track => (
         <ListItem key={track.id}>
           <ListItemAvatar>
-            <Avatar>Fa</Avatar>
+            <Avatar>{track.addedBy.slice(0, 2)}</Avatar>
           </ListItemAvatar>
           <ListItemText
-            onClick={() => playTrack()}
+            onClick={() => playTrack(track.id)}
             primary={track.title}
             secondary={track.channelTitle}
           />
