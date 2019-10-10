@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
+import TextField from '@material-ui/core/TextField'
 
 import SubHeading from '../typo/subheading'
 import { useSearchTracks } from '../hooks/runtime/searchTracks'
@@ -50,9 +51,14 @@ const SearchTrack = () => {
   return (
     <>
       <SubHeading>Add some Music here</SubHeading>
-      <input
+      <TextField
+        id="filled-full-width"
+        label="Search Music"
+        style={{ padding: 4 }}
+        fullWidth
+        margin="normal"
+        variant="filled"
         onChange={e => setSearchYoutubeString(e.target.value)}
-        placeholder="Search Youtube"
         value={searchYoutubeString}
       />
       {searchResultDom}
