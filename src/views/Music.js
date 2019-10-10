@@ -8,6 +8,7 @@ import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import { usePlayer } from '../hooks/runtime/player'
 import { useTracks } from '../hooks/runtime/tracks'
+import { colors } from '../../tailwind'
 
 const LazySearchTracks = loadable(() => import('../components/SearchTracks'))
 const LazyTrackList = loadable(() => import('../components/TrackList'))
@@ -41,7 +42,7 @@ const Music = ({ offset }) => {
       {inView && (
         <FlexContainer>
           <FlexContent>
-            <LazyTrackList tracks={tracks} />
+            <LazyTrackList tracks={tracks} currentTrackId={currentTrack.id} />
           </FlexContent>
           <FlexContent>
             <LazySearchTracks fallback={<div>Loading...</div>} />

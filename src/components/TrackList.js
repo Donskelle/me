@@ -1,5 +1,8 @@
 import React from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
+import { useTransition, animated } from 'react-spring'
+import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
@@ -9,12 +12,26 @@ import Avatar from '@material-ui/core/Avatar'
 import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
 
+import SubHeading from '../typo/subheading'
+
 import {
   deleteTrack as deleteTrackMutation,
   updatePlayer as updatePlayerMutation,
 } from '../graphql/mutations'
 
-export default function InteractiveList({ tracks }) {
+const AnimatedListItem = styled(animated(ListItem))``
+
+const useStyles = makeStyles(theme => ({
+  root: {
+    width: '100%',
+    maxWidth: 400,
+    backgroundColor: theme.palette.background.paper,
+  },
+}))
+
+export default function InteractiveList({ tracks, currentTrackId }) {
+  const classes = useStyles()
+
   const deleteTrack = id => {
     API.graphql(graphqlOperation(deleteTrackMutation, { input: { id } }))
   }
@@ -29,29 +46,39 @@ export default function InteractiveList({ tracks }) {
     )
   }
 
+  const transitionsTracks = useTransition(tracks, item => item.id, {
+    enter: { opacity: 1, height: 80 },
+    leave: { opacity: 0, height: 0 },
+  })
+
   return (
-    <List dense>
-      {tracks.map(track => (
-        <ListItem key={track.id}>
-          <ListItemAvatar>
-            <Avatar>{track.addedBy.slice(0, 2)}</Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            onClick={() => playTrack(track.id)}
-            primary={track.title}
-            secondary={track.channelTitle}
-          />
-          <ListItemSecondaryAction>
-            <IconButton
-              edge="end"
-              aria-label="delete"
-              onClick={() => deleteTrack(track.id)}
-            >
-              <DeleteIcon />
-            </IconButton>
-          </ListItemSecondaryAction>
-        </ListItem>
-      ))}
-    </List>
+    <>
+      <SubHeading>Current Tracklist</SubHeading>
+      <List dense className={classes.root}>
+        {transitionsTracks.map(({ item, key, props: { ...rest } }) => (
+          <AnimatedListItem
+            key={key}
+            style={rest}
+            button
+            selected={currentTrackId === item.id}
+            onClick={() => playTrack(item.id)}
+          >
+            <ListItemAvatar>
+              <Avatar>{item.addedBy.slice(0, 2)}</Avatar>
+            </ListItemAvatar>
+            <ListItemText primary={item.title} secondary={item.channelTitle} />
+            <ListItemSecondaryAction>
+              <IconButton
+                edge="end"
+                aria-label="delete"
+                onClick={() => deleteTrack(item.id)}
+              >
+                <DeleteIcon />
+              </IconButton>
+            </ListItemSecondaryAction>
+          </AnimatedListItem>
+        ))}
+      </List>
+    </>
   )
 }

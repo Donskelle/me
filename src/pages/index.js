@@ -1,6 +1,7 @@
 import React from 'react'
 import { Parallax } from 'react-spring/renderprops-addons'
 import Amplify from 'aws-amplify'
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
 import SEO from '../components/seo'
 import GlobalStyle from '../styles/global'
@@ -12,14 +13,18 @@ import WhatIWannaDo from '../views/WhatIWannaDo'
 import Contact from '../views/Contact'
 import Music from '../views/Music'
 
-import awsconfig from '../aws-exports';
+import awsconfig from '../aws-exports'
 
-
-Amplify.configure(awsconfig);
+const muiTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+})
+Amplify.configure(awsconfig)
 
 // Configure a custom GraphQL endpoint
 const IndexPage = () => (
-  <>
+  <MuiThemeProvider theme={muiTheme}>
     <GlobalStyle />
     <SEO
       title="Donskelle - Frontend Developer Hamburg"
@@ -35,7 +40,7 @@ const IndexPage = () => (
       <Contact offset={5} />
       <Footer offset={6} />
     </Parallax>
-  </>
+  </MuiThemeProvider>
 )
 
 export default IndexPage
