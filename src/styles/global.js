@@ -2,7 +2,7 @@ import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
   *, *:before, *:after {
-    box-sizing: inherit;
+    box-sizing: order-box;
   }
   html {
     text-rendering: optimizeLegibility;
