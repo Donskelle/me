@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
@@ -13,7 +13,6 @@ const Contact = ({ offset }) => {
   const [{ name, email, message }, setValue] = useForm({})
   const [formSending, setFormSending] = useState(false)
   const [submited, setSubmited] = useState(false)
-  const formRef = useRef(null)
 
   const sendMail = e => {
     e.preventDefault()
@@ -27,7 +26,7 @@ const Contact = ({ offset }) => {
   const form = submited ? (
     <H2>Thanks</H2>
   ) : (
-    <form onSubmit={sendMail} disabled={formSending} ref={formRef}>
+    <form onSubmit={sendMail} disabled={formSending}>
       <TextField
         name="name"
         label="Name"
