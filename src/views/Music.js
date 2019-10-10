@@ -42,7 +42,10 @@ const Music = ({ offset }) => {
       {inView && (
         <FlexContainer>
           <FlexContent>
-            <LazyTrackList tracks={tracks} currentTrackId={currentTrack.id} />
+            <LazyTrackList
+              tracks={tracks}
+              currentTrackId={currentTrack ? currentTrack.id : ''}
+            />
           </FlexContent>
           <FlexContent>
             <LazySearchTracks fallback={<div>Loading...</div>} />
