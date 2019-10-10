@@ -38,6 +38,7 @@ const ContactForm = () => {
         label="E-Mail"
         margin="normal"
         variant="outlined"
+        type="email"
         onChange={setValue}
         required
       />
