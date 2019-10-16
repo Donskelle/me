@@ -18,7 +18,7 @@ const Container = styled.div`
   ${tw`flex-1 self-stretch`};
 `
 const ContentStyledBG = styled(ContentBG)`
-  animation: gradientBG 15s ease infinite alternate;
+  animation: gradientBgAnimation 15s ease infinite alternate;
   background: linear-gradient(45deg, ${colors['blue-darkest']}, transparent),
     repeating-linear-gradient(
       45deg,
@@ -36,7 +36,7 @@ const ContentStyledBG = styled(ContentBG)`
         transparent 10%
       );
 
-  @keyframes gradientBG {
+  @keyframes gradientBgAnimation {
     0% {
       background-size: 100% 100%;
     }
