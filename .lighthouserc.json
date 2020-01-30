@@ -3,9 +3,7 @@
     "collect": {
       "numberOfRuns": 5,
       "startServerCommand": "npm run serve",
-      "url": [
-        "http://localhost:9000/"
-      ]
+      "url": ["http://localhost:9000/"]
     },
     "assert": {
       "preset": "lighthouse:no-pwa",
@@ -21,5 +19,8 @@
         "categories:accessibility": ["warn", { "minScore": 0.1 }]
       }
     }
+  },
+  "upload": {
+    "target": "temporary-public-storage"
   }
 }
