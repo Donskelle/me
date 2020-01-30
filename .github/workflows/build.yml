@@ -1,4 +1,4 @@
-name: Run Build
+name: Run Build and run Tests
 
 on: 
   push:
@@ -41,6 +41,37 @@ jobs:
       with:
         name: me-build
         path: public/
+
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: "12.x"
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+    - run: npm i
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: me-build
+      - name: Lighthouse
+        env:
+          configPath: "./lighthouserc.json"
+          LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
+        run: |
+          npx lhci collect
+          npx lhci upload --token "$LHCI_SERVER_TOKEN"
         
 
  
