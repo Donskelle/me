@@ -1,5 +1,5 @@
-describe('Async Components', function() {
-  it('Loads React Player on scroll', function() {
+describe('Async Components', () => {
+  it('Loads React Player on scroll', () => {
     cy.visit('/')
     cy.get('.react-player').should('not.exist')
     cy.contains('Serverless Music Player').scrollIntoView()

@@ -39,6 +39,7 @@
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-cypress": "^2.8.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.1.1",
@@ -60,7 +61,7 @@
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
     "cy": "cypress run --browser chrome --headless",
-		"cy:open": "cypress open",
+    "cy:open": "cypress open",
     "test:e2e": "start-server-and-test serve http://localhost:9000/ cy",
     "test:debug": "start-server-and-test serve http://localhost:9000/ cy:open"
   },
