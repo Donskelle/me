@@ -32,9 +32,9 @@ jobs:
     - run: npm run build
       env:
         CI: true
-        ME_GQ_ENDPOINT: ${{ env.ME_GQ_ENDPOINT }}
-        ME_AWS_APIKEY: ${{ env.ME_AWS_APIKEY }}
-        G_TOKEN_READ: ${{ env.G_TOKEN_READ }}
+        ME_GQ_ENDPOINT: ${{ secrets.ME_GQ_ENDPOINT }}
+        ME_AWS_APIKEY: ${{ secrets.ME_AWS_APIKEY }}
+        G_TOKEN_READ: ${{ secrets.G_TOKEN_READ }}
     - name: Upload build
       uses: actions/upload-artifact@v1
       if: success()
