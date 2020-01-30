@@ -4,7 +4,7 @@ import tw from 'tailwind.macro'
 
 import { colors } from '../../tailwind'
 import { Content, ContentBG } from '../components/elements'
-import { isMobile } from '../hooks/isMobile'
+import { RepoList } from '../components/RepoList'
 import { useGithubStars } from '../hooks/static/githubStars'
 import H2 from '../typo/h2'
 import Subheading from '../typo/subheading'
@@ -13,11 +13,7 @@ const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
 export default ({ offset }) => {
-  const starredRepositories = useGithubStars();
-  const mobile = isMobile()
-  const repos = mobile
-    ? starredRepositories.nodes.slice(0, 10)
-    : starredRepositories.nodes
+  const repos = useGithubStars()
 
   return (
     <>
@@ -27,15 +23,9 @@ export default ({ offset }) => {
           <H2>Interessting Repos on Github</H2>
           <Subheading>
             Check out hottest things happing in dev community on my{' '}
-            {starredRepositories.totalCount} long github star
-            feed
+            {repos.totalCount} long github star feed
           </Subheading>
-          {repos.map(star => (
-            <div key={star.url}>
-              {star.name} {star.description}
-              Likes {star.stargazers.totalCount} - <a href={star.url}>Link</a>
-            </div>
-          ))}
+          <RepoList repos={repos} />
         </Wrapper>
       </Content>
     </>
