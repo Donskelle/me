@@ -9,6 +9,7 @@
     "@material-ui/icons": "^4.5.1",
     "aws-amplify": "^1.2.2",
     "babel-plugin-styled-components": "^1.10.0",
+    "cypress": "^3.8.3",
     "eslint-plugin-simple-import-sort": "^5.0.1",
     "gatsby": "^2.16.3",
     "gatsby-image": "^2.2.29",
@@ -38,11 +39,13 @@
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-config-prettier": "^6.4.0",
+    "eslint-plugin-cypress": "^2.8.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
     "eslint-plugin-prettier": "^3.1.1",
     "eslint-plugin-react": "^7.16.0",
-    "prettier": "^1.17.0"
+    "prettier": "^1.17.0",
+    "start-server-and-test": "^1.10.8"
   },
   "license": "MIT",
   "scripts": {
@@ -56,7 +59,11 @@
     "lhci:upload": "lhci upload --target temporary-public-storage",
     "lhci:ci": "lhci autorun",
     "serve": "gatsby serve",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\"",
+    "cy": "cypress run --browser chrome --headless",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test serve http://localhost:9000/ cy",
+    "test:debug": "start-server-and-test serve http://localhost:9000/ cy:open"
   },
   "repository": {
     "type": "git",

@@ -45,10 +45,10 @@ const Music = ({ offset }) => {
             />
           </FlexContent>
           <FlexContent>
-            <LazySearchTracks fallback={<div>Loading...</div>} />
+            <LazySearchTracks />
           </FlexContent>
           <FlexContent>
-            <LazyReactPlayer playing={playing} url={url} />
+            <LazyReactPlayer className="react-player" playing={playing} url={url} />
           </FlexContent>
         </FlexContainer>
       )}

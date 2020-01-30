@@ -15,7 +15,6 @@ HOOOOOOKS:
 
 Deps:
   - ./package.json
-  - ./package-lock.json
 
 Images:
   - src/images/**/*
@@ -25,3 +24,7 @@ ESLint:
 
 AWS:
   - amplify/**/*
+
+Cypress:
+  - cypress/**/*
+  - cypress.json
