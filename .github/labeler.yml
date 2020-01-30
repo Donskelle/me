@@ -1,0 +1,18 @@
+Repo:
+  - ./*
+
+Src:
+  - src/**/*
+
+HOOOOOOKS:
+  - src/hooks/**
+
+Deps:
+  - ./package.json
+  - ./package-lock.json
+
+Images:
+  - src/images/**/*
+
+AWS:
+  - amplify/**/*
