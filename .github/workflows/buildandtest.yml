@@ -1,0 +1,97 @@
+name: Run Build and Tests
+
+on:
+  push:
+    paths-ignore:
+      # - '.github/**'
+      - 'README.md'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: npm i
+      - run: npm run build
+        env:
+          CI: true
+          ME_GQ_ENDPOINT: ${{ secrets.ME_GQ_ENDPOINT }}
+          ME_AWS_APIKEY: ${{ secrets.ME_AWS_APIKEY }}
+          G_TOKEN_READ: ${{ secrets.G_TOKEN_READ }}
+      - name: Upload build
+        uses: actions/upload-artifact@v1
+        if: success()
+        with:
+          name: public
+          path: public/
+  lint-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: npm i
+      - run: npm run lint
+      - run: npm t
+        env:
+          CI: true
+  lighthouse:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache node modules
+        uses: actions/cache@v1
+        env:
+          cache-name: cache-node-modules
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+      - run: npm i
+      - name: Download build
+        uses: actions/download-artifact@v1
+        with:
+          name: public
+      - name: Lighthouse
+        env:
+          LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+        run: |
+          npm run lhci:ci
+          npm run lhci:upload

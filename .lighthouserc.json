@@ -1,0 +1,29 @@
+{
+  "ci": {
+    "collect": {
+      "numberOfRuns": 5,
+      "startServerCommand": "npm run serve",
+      "url": ["http://localhost:9000/"]
+    },
+    "assert": {
+      "preset": "lighthouse:no-pwa",
+      "assertions": {
+        "uses-http2": "off",
+        "first-contentful-paint": "off",
+        "unminified-javascript": "off",
+        "uses-text-compression": "off",
+        "render-blocking-resources": "off",
+        "uses-long-cache-ttl": "off",
+        "first-meaningful-paint": "off",
+        "color-contrast": "off",
+        "uses-rel-preconnect": "off",
+        "uses-responsive-images": "off",
+        "categories:performance": ["warn", { "minScore": 0.1 }],
+        "categories:accessibility": ["warn", { "minScore": 0.1 }]
+      }
+    }
+  },
+  "upload": {
+    "target": "temporary-public-storage"
+  }
+}
