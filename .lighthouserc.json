@@ -15,6 +15,9 @@
         "render-blocking-resources": "off",
         "uses-long-cache-ttl": "off",
         "first-meaningful-paint": "off",
+        "color-contrast": "off",
+        "uses-rel-preconnect": "off",
+        "uses-responsive-images": "off",
         "categories:performance": ["warn", { "minScore": 0.1 }],
         "categories:accessibility": ["warn", { "minScore": 0.1 }]
       }
