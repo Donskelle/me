@@ -91,5 +91,6 @@ jobs:
       - name: Lighthouse
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm run lhci:ci
