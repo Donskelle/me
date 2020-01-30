@@ -48,7 +48,7 @@ const Music = ({ offset }) => {
             <LazySearchTracks />
           </FlexContent>
           <FlexContent>
-            <LazyReactPlayer className="reactlayer" playing={playing} url={url} />
+            <LazyReactPlayer className="react-player" playing={playing} url={url} />
           </FlexContent>
         </FlexContainer>
       )}
