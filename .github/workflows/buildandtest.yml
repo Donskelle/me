@@ -92,5 +92,4 @@ jobs:
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
         run: |
-          npm run lhci:collect
-          npm run lhci:upload
+          npm run lhci:ci
