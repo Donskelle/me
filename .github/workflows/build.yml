@@ -39,7 +39,7 @@ jobs:
       uses: actions/upload-artifact@v1
       if: success()
       with:
-        name: me-build
+        name: public
         path: public/
 
   lighthouse:
@@ -65,7 +65,7 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v1
         with:
-          name: me-build
+          name: public
       - name: Lighthouse
         env:
           LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
