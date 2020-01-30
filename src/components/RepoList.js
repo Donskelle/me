@@ -4,7 +4,7 @@ import { isMobile } from '../hooks/isMobile'
 
 const RepoList = ({ repos }) => {
   const mobile = isMobile()
-  const slicedRepos = mobile && repos.nodes.slice(0, 8) || repos.nodes
+  const slicedRepos = (mobile && repos.slice(0, 8)) || repos
   return (
     <>
       {slicedRepos.map(star => (
