@@ -1,5 +1,5 @@
-import React from 'react'
 import loadable from '@loadable/component'
+import React from 'react'
 import { useInView } from 'react-intersection-observer'
 
 import { Content, ContentBG } from '../components/elements'

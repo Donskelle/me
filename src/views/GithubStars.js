@@ -2,12 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
-import { Content, ContentBG } from '../components/elements'
 import { colors } from '../../tailwind'
-import H2 from '../typo/h2'
-import Subheading from '../typo/subheading'
+import { Content, ContentBG } from '../components/elements'
 import { isMobile } from '../hooks/isMobile'
 import { useGithubStars } from '../hooks/static/githubStars'
+import H2 from '../typo/h2'
+import Subheading from '../typo/subheading'
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};

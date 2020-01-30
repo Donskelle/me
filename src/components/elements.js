@@ -1,6 +1,6 @@
-import styled, { keyframes, css } from 'styled-components'
-import tw from 'tailwind.macro'
 import { ParallaxLayer } from 'react-spring/renderprops-addons'
+import styled, { css,keyframes } from 'styled-components'
+import tw from 'tailwind.macro'
 
 export const Content = styled(ParallaxLayer)`
   ${tw`p-6 md:p-12 lg:p-24 justify-center items-center flex z-50 overflow-y-hidden flex-col`};

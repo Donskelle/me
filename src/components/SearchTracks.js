@@ -1,10 +1,10 @@
-import React, { useState } from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
 import TextField from '@material-ui/core/TextField'
+import { API, graphqlOperation } from 'aws-amplify'
+import React, { useState } from 'react'
 
-import SubHeading from '../typo/subheading'
-import { useSearchTracks } from '../hooks/runtime/searchTracks'
 import { createTrack } from '../graphql/mutations'
+import { useSearchTracks } from '../hooks/runtime/searchTracks'
+import SubHeading from '../typo/subheading'
 import { cleanObjectReference } from '../utils'
 
 const SearchTrack = () => {

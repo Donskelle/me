@@ -1,12 +1,12 @@
-import { useReducer, useEffect } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
+import { useEffect,useReducer } from 'react'
 
-import { useStaticTracks } from '../static/tracks'
 import { listTracks } from '../../graphql/queries'
 import {
   onCreateTrack as onCreateTrackSubcription,
   onDeleteTrack as onDeleteTrackSubcription,
 } from '../../graphql/subscriptions'
+import { useStaticTracks } from '../static/tracks'
 
 function reducer(state, action) {
   switch (action.type) {

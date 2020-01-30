@@ -1,10 +1,10 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import { useTrail, animated } from 'react-spring'
+import { animated,useTrail } from 'react-spring'
 
-import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import doList from '../data/do'
+import H2 from '../typo/h2'
 
 const WhatIDo = ({ offset }) => {
   const [ref, inView] = useInView({

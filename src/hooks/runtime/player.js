@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
 import { API, graphqlOperation } from 'aws-amplify'
+import { useEffect, useState } from 'react'
 
-import { onUpdatePlayer as onUpdatePlayerSubsription } from '../../graphql/subscriptions'
 import { getPlayer } from '../../graphql/queries'
+import { onUpdatePlayer as onUpdatePlayerSubsription } from '../../graphql/subscriptions'
 
 export function usePlayer() {
   const [playerStatus, setPlayerStatus] = useState({

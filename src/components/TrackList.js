@@ -1,24 +1,23 @@
-import React from 'react'
-import { API, graphqlOperation } from 'aws-amplify'
-import { useTransition, animated } from 'react-spring'
-import { makeStyles } from '@material-ui/core/styles'
-import styled from 'styled-components'
+import Avatar from '@material-ui/core/Avatar'
+import IconButton from '@material-ui/core/IconButton'
 import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import ListItemText from '@material-ui/core/ListItemText'
-import Avatar from '@material-ui/core/Avatar'
-import IconButton from '@material-ui/core/IconButton'
+import { makeStyles } from '@material-ui/core/styles'
 import DeleteIcon from '@material-ui/icons/Delete'
-
-import SubHeading from '../typo/subheading'
-import { useTracks } from '../hooks/runtime/tracks'
+import { API, graphqlOperation } from 'aws-amplify'
+import React from 'react'
+import { animated, useTransition } from 'react-spring'
+import styled from 'styled-components'
 
 import {
   deleteTrack as deleteTrackMutation,
   updatePlayer as updatePlayerMutation,
 } from '../graphql/mutations'
+import { useTracks } from '../hooks/runtime/tracks'
+import SubHeading from '../typo/subheading'
 
 const AnimatedListItem = styled(animated(ListItem))``
 

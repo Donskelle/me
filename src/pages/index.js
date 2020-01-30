@@ -1,19 +1,18 @@
+import { createMuiTheme,MuiThemeProvider } from '@material-ui/core/styles'
+import Amplify from 'aws-amplify'
 import React from 'react'
 import { Parallax } from 'react-spring/renderprops-addons'
-import Amplify from 'aws-amplify'
-import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles'
 
+import awsconfig from '../aws-exports'
 import SEO from '../components/seo'
 import GlobalStyle from '../styles/global'
+import Contact from '../views/Contact'
 import Footer from '../views/Footer'
 import GithubStars from '../views/GithubStars'
 import Intro from '../views/Intro'
+import Music from '../views/Music'
 import WhatIDo from '../views/WhatIDo'
 import WhatIWannaDo from '../views/WhatIWannaDo'
-import Contact from '../views/Contact'
-import Music from '../views/Music'
-
-import awsconfig from '../aws-exports'
 
 const muiTheme = createMuiTheme({
   palette: {

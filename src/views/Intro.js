@@ -1,15 +1,16 @@
+import './intro.css'
+
 import React, { useState } from 'react'
+import { animated,useSpring } from 'react-spring'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import { useSpring, animated } from 'react-spring'
 
-import './intro.css'
-import { Content, ContentBG } from '../components/elements'
-import H1 from '../typo/h1'
-import Subheading from '../typo/subheading'
 import { colors } from '../../tailwind'
+import { Content, ContentBG } from '../components/elements'
 import GitImg from '../components/GitImg'
 import { useGithubInfo } from '../hooks/static/githubInfo'
+import H1 from '../typo/h1'
+import Subheading from '../typo/subheading'
 
 const Wrapper = styled.div`
   ${tw`w-full  text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
