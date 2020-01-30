@@ -27,8 +27,8 @@ const Music = ({ offset }) => {
     threshold: 0,
     triggerOnce: true,
   })
-  const tracks = useTracks()
   const { currentTrack, playing } = usePlayer()
+  const tracks = useTracks()
 
   const url =
     currentTrack && currentTrack.youtubeId

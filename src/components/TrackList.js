@@ -13,6 +13,7 @@ import IconButton from '@material-ui/core/IconButton'
 import DeleteIcon from '@material-ui/icons/Delete'
 
 import SubHeading from '../typo/subheading'
+import { useTracks } from '../hooks/runtime/tracks'
 
 import {
   deleteTrack as deleteTrackMutation,
@@ -30,7 +31,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function InteractiveList({ tracks, currentTrackId }) {
+export default function InteractiveList({ currentTrackId }) {
+  const tracks = useTracks()
+
   const classes = useStyles()
 
   const deleteTrack = id => {
