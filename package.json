@@ -53,8 +53,8 @@
     "format": "npm run lint:fix",
     "start": "npm run develop",
     "lhci:collect": "lhci collect",
-    "lhci:upload": "lhci upload",
-    "lhci:ci": "lhci autorun --config=./.lighthouserc.json",
+    "lhci:upload": "lhci upload --target temporary-public-storage",
+    "lhci:ci": "lhci autorun",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
