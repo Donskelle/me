@@ -1,3 +1,3 @@
-# me - privat Website
+# me - Donskelle Website
 
 Gatsby and Amplify
