@@ -22,15 +22,18 @@ function reducer(state, action) {
 }
 
 export function useTracks() {
+  // Build Time Request
   const initialTracks = useStaticTracks()
   const [state, dispatch] = useReducer(reducer, initialTracks)
 
+  // Update Tracks after Render
   useEffect(() => {
     API.graphql(graphqlOperation(listTracks)).then(tracksData => {
       dispatch({ type: 'set', payload: tracksData.data.listTracks.items })
     })
   }, [])
-
+  
+  // Register for Tracks updates
   useEffect(() => {
     const subscriberCreate = API.graphql(
       graphqlOperation(onCreateTrackSubcription),
