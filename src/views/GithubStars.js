@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
 `
 export default ({ offset }) => {
-  const repos = useGithubStars()
+  const { repos, totalCount } = useGithubStars()
 
   return (
     <>
@@ -22,8 +22,8 @@ export default ({ offset }) => {
         <Wrapper>
           <H2>Interessting Repos on Github</H2>
           <Subheading>
-            Check out hottest things happing in dev community on my{' '}
-            {repos.totalCount} long github star feed
+            Check out hottest things happing in dev community on my {totalCount}{' '}
+            long github star feed
           </Subheading>
           <RepoList repos={repos} />
         </Wrapper>
