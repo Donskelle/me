@@ -1,13 +1,13 @@
+import loadable from '@loadable/component'
 import React from 'react'
+import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
-import loadable from '@loadable/component'
-import { useInView } from 'react-intersection-observer'
 
-import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import { usePlayer } from '../hooks/runtime/player'
 import { useTracks } from '../hooks/runtime/tracks'
+import H2 from '../typo/h2'
 
 const LazySearchTracks = loadable(() => import('../components/SearchTracks'))
 const LazyTrackList = loadable(() => import('../components/TrackList'))

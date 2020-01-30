@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect,useState } from 'react'
 
 export const isMobile = () => {
   const [width, setWidth] = useState(window.innerWidth)

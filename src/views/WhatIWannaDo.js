@@ -1,13 +1,12 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import { useTrail, animated } from 'react-spring'
+import { animated,useTrail } from 'react-spring'
 
-// import styled from 'styled-components'
-// import tw from 'tailwind.macro'
-
-import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import wannaDoList from '../data/wannaDo'
+// import styled from 'styled-components'
+// import tw from 'tailwind.macro'
+import H2 from '../typo/h2'
 
 const WhatIWannaDo = ({ offset }) => {
   const [ref, inView] = useInView({
