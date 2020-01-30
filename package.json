@@ -33,6 +33,7 @@
     "tailwindcss": "^0.7.4"
   },
   "devDependencies": {
+    "@lhci/cli": "^0.3.8",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.5.1",
     "eslint-config-airbnb": "^18.0.1",
@@ -51,6 +52,8 @@
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "format": "npm run lint:fix",
     "start": "npm run develop",
+    "lhci:collect": "lhci collect",
+    "lhci:upload": "lhci upload --upload.target=temporary-public-storage",
     "serve": "gatsby serve",
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },

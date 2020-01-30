@@ -1,4 +1,4 @@
-name: Run Build and run Tests
+name: Run Build and Lighthouse Test
 
 on: 
   push:
@@ -68,11 +68,9 @@ jobs:
           name: me-build
       - name: Lighthouse
         env:
-          configPath: "./lighthouserc.json"
           LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
         run: |
-          npx @lhci/cli collect
-          npx @lhci/cli upload
-        
+          npm run lhci:collect
+          npm run lhci:upload
 
  
