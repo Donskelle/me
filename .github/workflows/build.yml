@@ -1,6 +1,10 @@
-name: Node.js CI
+name: Run Build
 
-on: [push]
+on: 
+  push:
+    paths-ignore:
+    - '.github/**'
+    - 'README.md'
 
 jobs:
   build:
