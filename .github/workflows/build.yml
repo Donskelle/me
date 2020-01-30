@@ -43,6 +43,7 @@ jobs:
         path: public/
 
   lighthouse:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -70,8 +71,8 @@ jobs:
           configPath: "./lighthouserc.json"
           LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
         run: |
-          npx lhci collect
-          npx lhci upload --token "$LHCI_SERVER_TOKEN"
+          npx @lhci/cli collect
+          npx @lhci/clic upload --token "$LHCI_SERVER_TOKEN"
         
 
  
