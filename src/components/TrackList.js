@@ -9,13 +9,14 @@ import { makeStyles } from '@material-ui/core/styles'
 import DeleteIcon from '@material-ui/icons/Delete'
 import { API, graphqlOperation } from 'aws-amplify'
 import React from 'react'
-import { animated,useTransition } from 'react-spring'
+import { animated, useTransition } from 'react-spring'
 import styled from 'styled-components'
 
 import {
   deleteTrack as deleteTrackMutation,
   updatePlayer as updatePlayerMutation,
 } from '../graphql/mutations'
+import { useTracks } from '../hooks/runtime/tracks'
 import SubHeading from '../typo/subheading'
 
 const AnimatedListItem = styled(animated(ListItem))``
@@ -29,7 +30,9 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-export default function InteractiveList({ tracks, currentTrackId }) {
+export default function InteractiveList({ currentTrackId }) {
+  const tracks = useTracks()
+
   const classes = useStyles()
 
   const deleteTrack = id => {
