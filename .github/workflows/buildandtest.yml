@@ -94,3 +94,4 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
         run: |
           npm run lhci:ci
+          npm run lhci:upload
