@@ -17,5 +17,8 @@ Deps:
 Images:
   - src/images/**/*
 
+ESLint:
+  - .eslintrc
+
 AWS:
   - amplify/**/*
