@@ -67,12 +67,12 @@ jobs:
         with:
           name: me-build
       - name: Lighthouse
-        env:
-          configPath: "./lighthouserc.json"
-          LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
+        # env:
+        #   configPath: "./lighthouserc.json"
+        #   LHCI_GITHUB_TOKEN: ${{ secrets.G_TOKEN_READ }}
         run: |
           npx @lhci/cli collect
-          npx @lhci/clic upload --token "$LHCI_SERVER_TOKEN"
+          npx @lhci/clic upload --token "${{ secrets.G_TOKEN_READ }}"
         
 
  

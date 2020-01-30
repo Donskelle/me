@@ -13,7 +13,7 @@ jobs:
       with:
         fromPhoneNumber: '+12039025279'
         toPhoneNumber: '+49(176)32630997'
-        message: 'Pull Request to Donskelle/Me'
+        message: 'Pull Request to Repo Donskelle/Me check it out at https://github.com/Donskelle/me/pulls'
       env:
         TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
         TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
