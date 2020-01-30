@@ -3,7 +3,7 @@ name: Run Build
 on: 
   push:
     paths-ignore:
-    - '.github/**'
+    # - '.github/**'
     - 'README.md'
 
 jobs:
