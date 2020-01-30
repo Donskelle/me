@@ -7,7 +7,6 @@ import { useInView } from 'react-intersection-observer'
 import H2 from '../typo/h2'
 import { Content } from '../components/elements'
 import { usePlayer } from '../hooks/runtime/player'
-import { useTracks } from '../hooks/runtime/tracks'
 
 const LazySearchTracks = loadable(() => import('../components/SearchTracks'))
 const LazyTrackList = loadable(() => import('../components/TrackList'))
@@ -27,7 +26,6 @@ const Music = ({ offset }) => {
     threshold: 0,
     triggerOnce: true,
   })
-  const tracks = useTracks()
   const { currentTrack, playing } = usePlayer()
 
   const url =
@@ -42,7 +40,6 @@ const Music = ({ offset }) => {
         <FlexContainer>
           <FlexContent>
             <LazyTrackList
-              tracks={tracks}
               currentTrackId={currentTrack ? currentTrack.id : ''}
             />
           </FlexContent>
