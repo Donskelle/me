@@ -7,6 +7,9 @@ readme:
 Src:
   - src/**/*
 
+GithubAction:
+  - .github/**/*
+
 HOOOOOOKS:
   - src/hooks/**
 
