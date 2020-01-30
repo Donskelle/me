@@ -60,7 +60,7 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-    - run: npm i
+      - run: npm i
       - name: Download build
         uses: actions/download-artifact@v1
         with:
