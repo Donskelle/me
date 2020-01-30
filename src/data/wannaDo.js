@@ -9,7 +9,7 @@ const wannaDoList = [
   },
   {
     name: 'Backend',
-    list: ['Serverless NodeJS', 'Amplify', 'Prisma'],
+    list: ['Serverless NodeJS', 'Amplify, Firebase', 'Prisma'],
   },
   {
     name: 'Apps',
