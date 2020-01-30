@@ -34,9 +34,9 @@ jobs:
     - name: Upload build
       uses: actions/upload-artifact@v1
       if: success()
-          with:
-            name: me-build
-            path: public/
+      with:
+        name: me-build
+        path: public/
         
 
  
