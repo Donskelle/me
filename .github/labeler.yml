@@ -1,6 +1,9 @@
 Repo:
   - ./*
 
+readme:
+  - README.md
+
 Src:
   - src/**/*
 
