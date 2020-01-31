@@ -7,5 +7,5 @@
 * Amplify (DB, Serverless Functions & GraphQL Api)
 * TailwindCSS (Minimal CSS Design System)
 * Styled Components
-* React Spring (Parralax, Animations)
+* React Spring (Parallax, Animations)
 * Material Components
