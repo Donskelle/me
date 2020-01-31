@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Donskelle - Frontend Developer Hamburg`,
-    description: `A frontend developer in Hamburg`,
+    description: `Frontend developer in Hamburg`,
     author: `@donskelle`,
   },
   pathPrefix: '/me',
@@ -12,7 +12,7 @@ module.exports = {
       resolve: 'gatsby-source-graphql',
       options: {
         // This type will contain remote schema Query type
-        typeName: 'MUZZAK',
+        typeName: 'Muzzak',
         // This is field under which it's accessible
         fieldName: 'muzzak',
         // Url to query from
@@ -46,7 +46,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-graphql',
       options: {
-        typeName: 'GitHub',
+        typeName: 'Github',
         fieldName: 'github',
         url: 'https://api.github.com/graphql',
         headers: {

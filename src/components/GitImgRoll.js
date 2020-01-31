@@ -1,3 +1,5 @@
+import './gitimgroll.css'
+
 import { graphql, useStaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 import React, { useState } from 'react'

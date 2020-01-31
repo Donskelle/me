@@ -2,4 +2,10 @@
 
 # me - Donskelle Website
 
-Build using Gatsby and Amplify
+## Tech Stack 
+* Gatsby (React, Server Side Rendering, Build Tool)
+* Amplify (DB, Serverless Functions & GraphQL Api)
+* TailwindCSS (Minimal CSS Design System)
+* Styled Components
+* React Spring (Parralax, Animations)
+* Material Components
