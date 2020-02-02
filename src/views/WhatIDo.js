@@ -1,6 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import { animated,useTrail } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
 import { Content } from '../components/elements'
 import doList from '../data/do'
@@ -16,7 +16,7 @@ const WhatIDo = ({ offset }) => {
   return (
     <Content speed={1} offset={offset}>
       <H2 ref={ref}>What I do</H2>
-      
+
       {trail.map((props, i) => (
         <animated.div key={doList[i].name} style={props}>
           {doList[i].name} {doList[i].list.join(', ')}

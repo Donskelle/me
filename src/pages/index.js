@@ -1,4 +1,4 @@
-import { createMuiTheme,MuiThemeProvider } from '@material-ui/core/styles'
+import { createMuiTheme, MuiThemeProvider } from '@material-ui/core/styles'
 import Amplify from 'aws-amplify'
 import React from 'react'
 import { Parallax } from 'react-spring/renderprops-addons'

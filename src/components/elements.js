@@ -1,5 +1,5 @@
 import { ParallaxLayer } from 'react-spring/renderprops-addons'
-import styled, { css,keyframes } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import tw from 'tailwind.macro'
 
 export const Content = styled(ParallaxLayer)`
