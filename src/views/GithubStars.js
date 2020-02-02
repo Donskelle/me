@@ -1,11 +1,11 @@
 import loadable from '@loadable/component'
 import React from 'react'
+import { useInView } from 'react-intersection-observer'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 import { colors } from '../../tailwind'
 import { Content, ContentBG } from '../components/elements'
-// import { RepoList } from '../components/RepoList'
 import { useGithubStars } from '../hooks/static/githubStars'
 import H2 from '../typo/h2'
 import Subheading from '../typo/subheading'
@@ -17,19 +17,22 @@ const Wrapper = styled.div`
 `
 export default ({ offset }) => {
   const { repos, totalCount } = useGithubStars()
+  const [ref, inView] = useInView({
+    threshold: 0,
+    triggerOnce: true,
+  })
 
   return (
     <>
       <ContentBG bg={colors['indigo-darker']} offset={offset} speed={0.2} />
       <Content speed={0.4} offset={offset}>
         <Wrapper>
-          <H2>Interessting Repos on Github</H2>
+          <H2 ref={ref}>Interessting Repos on Github</H2>
           <Subheading>
             Check out hottest things happing in dev community on my {totalCount}{' '}
             long github star feed
           </Subheading>
-          <LazyRepoList repos={repos}/>
-          {/* <RepoList repos={repos} /> */}
+          {inView && <LazyRepoList repos={repos} />}
         </Wrapper>
       </Content>
     </>
