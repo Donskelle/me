@@ -25,9 +25,7 @@ const calcXys = ({ clientX: x, clientY: y, target }) => {
     1.3,
   ]
 }
-const GitImg = () => {
-  return
-}
+
 const GitImgRoll = () => {
   const data = useStaticQuery(graphql`
     query {
