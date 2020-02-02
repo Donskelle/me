@@ -5,7 +5,7 @@ on:
 
 jobs:
   example:
-    name: Create Comment
+    name: Create Comment with Preview Url
     runs-on: ubuntu-latest
     steps:
       - name: Comment Link

@@ -10,8 +10,8 @@ on: [pull_request]
 
 jobs:
   addLabel:
-
     runs-on: ubuntu-latest
+    name: Add Label to Pull Requests
 
     steps:
     - uses: actions/labeler@v2

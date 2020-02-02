@@ -7,6 +7,7 @@ on:
 jobs:
   sms:
     runs-on: ubuntu-latest
+    name: Send SMS when Pull Request opens
 
     steps:
       - name: 'Sending SMS Notification'
