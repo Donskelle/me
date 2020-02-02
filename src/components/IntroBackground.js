@@ -1,10 +1,7 @@
-
-
 import styled from 'styled-components'
 
 import { colors } from '../../tailwind'
 import { ContentBG } from './elements'
-
 
 const IntroBackground = styled(ContentBG)`
   animation: gradientBgAnimation 15s ease infinite alternate;
@@ -34,6 +31,4 @@ const IntroBackground = styled(ContentBG)`
     }
   }
 `
-export {
-    IntroBackground
-}
+export { IntroBackground }

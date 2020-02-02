@@ -1,6 +1,6 @@
 import React from 'react'
 import { useInView } from 'react-intersection-observer'
-import { animated,useTrail } from 'react-spring'
+import { animated, useTrail } from 'react-spring'
 
 import { Content } from '../components/elements'
 import wannaDoList from '../data/wannaDo'
