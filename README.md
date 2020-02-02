@@ -9,3 +9,4 @@
 * Styled Components
 * React Spring (Parallax, Animations)
 * Material Components
+* Tests Cypress and Lighthouse
