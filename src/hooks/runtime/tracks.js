@@ -1,5 +1,5 @@
 import { API, graphqlOperation } from 'aws-amplify'
-import { useEffect,useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 
 import { listTracks } from '../../graphql/queries'
 import {
@@ -32,7 +32,7 @@ export function useTracks() {
       dispatch({ type: 'set', payload: tracksData.data.listTracks.items })
     })
   }, [])
-  
+
   // Register for Tracks updates
   useEffect(() => {
     const subscriberCreate = API.graphql(

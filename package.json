@@ -52,6 +52,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint . --ext .js,.jsx --ignore-path .gitignore",
+    "prettier:fix": "prettier --write \"src/**/*.js\"",
     "lint:fix": "eslint . --ext .js,.jsx --fix --ignore-path .gitignore",
     "format": "npm run lint:fix",
     "start": "npm run develop",

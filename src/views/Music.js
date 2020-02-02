@@ -8,7 +8,6 @@ import { Content } from '../components/elements'
 import { usePlayer } from '../hooks/runtime/player'
 import H2 from '../typo/h2'
 
-
 const LazySearchTracks = loadable(() => import('../components/SearchTracks'))
 const LazyTrackList = loadable(() => import('../components/TrackList'))
 const LazyReactPlayer = loadable(() => import('react-player'))
@@ -48,7 +47,11 @@ const Music = ({ offset }) => {
             <LazySearchTracks />
           </FlexContent>
           <FlexContent>
-            <LazyReactPlayer className="react-player" playing={playing} url={url} />
+            <LazyReactPlayer
+              className="react-player"
+              playing={playing}
+              url={url}
+            />
           </FlexContent>
         </FlexContainer>
       )}
