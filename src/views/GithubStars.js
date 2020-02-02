@@ -1,13 +1,16 @@
+import loadable from '@loadable/component'
 import React from 'react'
 import styled from 'styled-components'
 import tw from 'tailwind.macro'
 
 import { colors } from '../../tailwind'
 import { Content, ContentBG } from '../components/elements'
-import { RepoList } from '../components/RepoList'
+// import { RepoList } from '../components/RepoList'
 import { useGithubStars } from '../hooks/static/githubStars'
 import H2 from '../typo/h2'
 import Subheading from '../typo/subheading'
+
+const LazyRepoList = loadable(() => import('../components/RepoList'))
 
 const Wrapper = styled.div`
   ${tw`w-full xl:w-2/3`};
@@ -25,7 +28,8 @@ export default ({ offset }) => {
             Check out hottest things happing in dev community on my {totalCount}{' '}
             long github star feed
           </Subheading>
-          <RepoList repos={repos} />
+          <LazyRepoList repos={repos}/>
+          {/* <RepoList repos={repos} /> */}
         </Wrapper>
       </Content>
     </>

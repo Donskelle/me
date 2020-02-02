@@ -39,13 +39,13 @@ const RepoList = ({ repos }) => {
             />
           </ListItem>
         ))
-        .reduce((prev, curr) => [
+        .reduce((prev, curr, i) => [
           prev,
-          <Divider variant="inset" component="li" />,
+          <Divider key={i} variant="inset" component="li" />, // eslint-disable-line react/no-array-index-key
           curr,
         ])}
     </List>
   )
 }
 
-export { RepoList }
+export default RepoList
