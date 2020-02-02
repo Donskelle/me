@@ -3,7 +3,6 @@ name: Run Build and Tests
 on:
   push:
     paths-ignore:
-      # - '.github/**'
       - 'README.md'
 
 jobs:
