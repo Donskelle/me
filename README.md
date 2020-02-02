@@ -4,8 +4,9 @@
 
 ## Tech Stack 
 * Gatsby (React, Server Side Rendering, Build Tool)
-* Amplify (DB, Serverless Functions & GraphQL Api)
+* Amplify (DynamoDB, Serverless Functions, GraphQL Endpoint)
 * TailwindCSS (Minimal CSS Design System)
 * Styled Components
 * React Spring (Parallax, Animations)
 * Material Components
+* Tests Cypress and Lighthouse
