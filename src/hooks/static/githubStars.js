@@ -18,6 +18,16 @@ export const useGithubStars = () => {
               stargazers {
                 totalCount
               }
+              owner {
+                ... on Github_Organization {
+                  name
+                  avatarUrl
+                }
+                ... on Github_User {
+                  name
+                  avatarUrl
+                }
+              }
             }
           }
         }
