@@ -11,7 +11,8 @@ const RepoList = ({ repos }) => {
         <div key={star.url}>
           <b>{star.name}</b> {star.description}
           <br />
-          Likes {star.stargazers.totalCount} - <a href={star.url}>Link</a>
+          Likes {star.stargazers.totalCount} -{' '}
+          <a href={star.url}>Github Link</a>
         </div>
       ))}
     </>
