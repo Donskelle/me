@@ -25,7 +25,8 @@ const calcXys = ({ clientX: x, clientY: y, target }) => {
     1.3,
   ]
 }
-const GitImg = () => {
+
+const GitImgRoll = () => {
   const data = useStaticQuery(graphql`
     query {
       placeholderImage: file(relativePath: { eq: "gitimg.png" }) {
@@ -37,9 +38,6 @@ const GitImg = () => {
       }
     }
   `)
-  return <Img fluid={data.placeholderImage.childImageSharp.fluid} />
-}
-const GitImgRoll = () => {
   const [flipped, setFlip] = useState(false)
   const { transform, opacity } = useSpring({
     opacity: flipped ? 1 : 0,
@@ -65,7 +63,7 @@ const GitImgRoll = () => {
         style={{ opacity: opacity.interpolate(o => 1 - o), transform }}
         className="imgRoll"
       >
-        <GitImg />
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </ImgRoll>
       <ImgRoll
         className="imgRoll"
@@ -75,7 +73,7 @@ const GitImgRoll = () => {
           marginTop: '-100%',
         }}
       >
-        <GitImg />
+        <Img fluid={data.placeholderImage.childImageSharp.fluid} />
       </ImgRoll>
     </ImgWrapper>
   )
