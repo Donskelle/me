@@ -1,0 +1,11 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "amplify/backend/function/sendmail/src/package.json",
+        "amplify/backend/function/youtubesearch/src/package.json",
+        "package.json"
+      ]
+    }
+  }
+}
