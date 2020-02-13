@@ -2,6 +2,8 @@
 
 # me - Donskelle Website
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Donskelle/me.svg)](https://greenkeeper.io/)
+
 ## Tech Stack 
 * Gatsby (React, Server Side Rendering, Build Tool)
 * Amplify (DynamoDB, Serverless Functions, GraphQL Endpoint)
