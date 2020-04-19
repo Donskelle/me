@@ -28,6 +28,11 @@ export const useGithubStars = () => {
                   avatarUrl
                 }
               }
+              readme: object(expression: "master:README.md", ) {
+                ... on Github_Blob {
+                  text
+                }
+              }
             }
           }
         }

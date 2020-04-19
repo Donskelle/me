@@ -7,13 +7,16 @@ import ListItemAvatar from '@material-ui/core/ListItemAvatar'
 import ListItemText from '@material-ui/core/ListItemText'
 import Typography from '@material-ui/core/Typography'
 import React from 'react'
+// import styled from 'styled-components'
+// import tw from 'tailwind.macro'
 
-import { isMobile } from '../hooks/isMobile'
 
 const RepoList = ({ repos }) => {
   const mobile = isMobile()
   const slicedRepos = (mobile && repos.slice(0, 8)) || repos
   return (
+    
+    
     <List>
       {slicedRepos
         .map(star => (
