@@ -1,20 +1,20 @@
-import { API, graphqlOperation } from "aws-amplify";
-import { useEffect, useReducer } from "react";
+import { API, graphqlOperation } from 'aws-amplify';
+import { useEffect, useReducer } from 'react';
 
-import { listTracks } from "../../graphql/queries";
+import { listTracks } from '../../graphql/queries';
 import {
   onCreateTrack as onCreateTrackSubcription,
   onDeleteTrack as onDeleteTrackSubcription,
-} from "../../graphql/subscriptions";
-import { useStaticTracks } from "../static/tracks";
+} from '../../graphql/subscriptions';
+import { useStaticTracks } from '../static/tracks';
 
 function reducer(state, action) {
   switch (action.type) {
-    case "set":
+    case 'set':
       return [...action.payload];
-    case "add":
+    case 'add':
       return [...state, action.payload];
-    case "delete":
+    case 'delete':
       return [...state].filter((track) => track.id !== action.payload.id);
     default:
       return state;
@@ -29,7 +29,7 @@ export function useTracks() {
   // Update Tracks after Render
   useEffect(() => {
     API.graphql(graphqlOperation(listTracks)).then((tracksData) => {
-      dispatch({ type: "set", payload: tracksData.data.listTracks.items });
+      dispatch({ type: 'set', payload: tracksData.data.listTracks.items });
     });
   }, []);
 
@@ -44,7 +44,7 @@ export function useTracks() {
             data: { onCreateTrack },
           },
         } = data;
-        dispatch({ type: "add", payload: onCreateTrack });
+        dispatch({ type: 'add', payload: onCreateTrack });
       },
     });
 
@@ -57,7 +57,7 @@ export function useTracks() {
             data: { onDeleteTrack },
           },
         } = data;
-        dispatch({ type: "delete", payload: onDeleteTrack });
+        dispatch({ type: 'delete', payload: onDeleteTrack });
       },
     });
 

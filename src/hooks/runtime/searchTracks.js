@@ -1,14 +1,14 @@
-import { API, graphqlOperation } from "aws-amplify";
-import { useEffect, useState } from "react";
+import { API, graphqlOperation } from 'aws-amplify';
+import { useEffect, useState } from 'react';
 
-import { youtubesearch } from "../../graphql/queries";
-import { useDebounce } from "../useDebounce";
+import { youtubesearch } from '../../graphql/queries';
+import { useDebounce } from '../useDebounce';
 
 export function useSearchTracks(currentSearch) {
   const search = useDebounce(currentSearch, 300);
   const [searchResult, setSearchResult] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
   useEffect(() => {
     if (search) {
@@ -19,7 +19,7 @@ export function useSearchTracks(currentSearch) {
         }),
       )
         .then((searchData) => {
-          setError("");
+          setError('');
           setSearchResult(searchData.data.youtubesearch);
         })
         .catch((e) => {

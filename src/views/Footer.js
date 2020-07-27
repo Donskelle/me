@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import { colors } from "../../tailwind";
-import { Content, ContentBG } from "../components/elements";
+import { colors } from '../../tailwind';
+import { Content, ContentBG } from '../components/elements';
 
 const Footer = ({ offset }) => (
   <>

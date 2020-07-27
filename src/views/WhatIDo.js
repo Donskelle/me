@@ -1,10 +1,10 @@
-import React from "react";
-import { useInView } from "react-intersection-observer";
-import { animated, useTrail } from "react-spring";
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { animated, useTrail } from 'react-spring';
 
-import { Content } from "../components/elements";
-import doList from "../data/do";
-import H2 from "../typo/h2";
+import { Content } from '../components/elements';
+import doList from '../data/do';
+import H2 from '../typo/h2';
 
 const WhatIDo = ({ offset }) => {
   const [ref, inView] = useInView({
@@ -19,7 +19,7 @@ const WhatIDo = ({ offset }) => {
 
       {trail.map((props, i) => (
         <animated.div key={doList[i].name} style={props}>
-          {doList[i].name} {doList[i].list.join(", ")}
+          {doList[i].name} {doList[i].list.join(', ')}
         </animated.div>
       ))}
     </Content>

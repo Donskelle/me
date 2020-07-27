@@ -1,14 +1,14 @@
-import TextField from "@material-ui/core/TextField";
-import { API, graphqlOperation } from "aws-amplify";
-import React, { useState } from "react";
+import TextField from '@material-ui/core/TextField';
+import { API, graphqlOperation } from 'aws-amplify';
+import React, { useState } from 'react';
 
-import { createTrack } from "../graphql/mutations";
-import { useSearchTracks } from "../hooks/runtime/searchTracks";
-import SubHeading from "../typo/subheading";
-import { cleanObjectReference } from "../utils";
+import { createTrack } from '../graphql/mutations';
+import { useSearchTracks } from '../hooks/runtime/searchTracks';
+import SubHeading from '../typo/subheading';
+import { cleanObjectReference } from '../utils';
 
 const SearchTrack = () => {
-  const [searchYoutubeString, setSearchYoutubeString] = useState("");
+  const [searchYoutubeString, setSearchYoutubeString] = useState('');
   const { searchResult, loading, error } = useSearchTracks(searchYoutubeString);
 
   const addTrack = (id) => {
@@ -22,7 +22,7 @@ const SearchTrack = () => {
 
     const trackDetail = {
       youtubeId: id,
-      addedBy: "Fabian",
+      addedBy: 'Fabian',
       title,
       channelTitle,
       publishedAt,
@@ -35,11 +35,11 @@ const SearchTrack = () => {
 
   let searchResultDom;
   if (loading) {
-    searchResultDom = "Loading...";
+    searchResultDom = 'Loading...';
   } else if (error) {
     searchResultDom = `Error: ${error}`;
   } else if (searchResult.length === 0 && searchYoutubeString) {
-    searchResultDom = "Empty Result";
+    searchResultDom = 'Empty Result';
   } else {
     searchResultDom = searchResult.map((track) => (
       <div key={track.youtubeId} onClick={() => addTrack(track.youtubeId)}>

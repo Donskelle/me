@@ -1,14 +1,14 @@
-import Avatar from "@material-ui/core/Avatar";
-import Divider from "@material-ui/core/Divider";
+import Avatar from '@material-ui/core/Avatar';
+import Divider from '@material-ui/core/Divider';
 // import { makeStyles } from '@material-ui/core/styles'
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemAvatar from "@material-ui/core/ListItemAvatar";
-import ListItemText from "@material-ui/core/ListItemText";
-import Typography from "@material-ui/core/Typography";
-import React from "react";
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import Typography from '@material-ui/core/Typography';
+import React from 'react';
 
-import { isMobile } from "../hooks/isMobile";
+import { isMobile } from '../hooks/isMobile';
 
 const RepoList = ({ repos }) => {
   const mobile = isMobile();
@@ -32,7 +32,7 @@ const RepoList = ({ repos }) => {
                   >
                     {star.description}
                   </Typography>
-                  Likes {star.stargazers.totalCount} -{" "}
+                  Likes {star.stargazers.totalCount} -{' '}
                   <a href={star.url}>Link</a>
                 </>
               }

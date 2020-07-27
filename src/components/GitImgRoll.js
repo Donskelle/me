@@ -1,11 +1,11 @@
-import "./gitimgroll.css";
+import './gitimgroll.css';
 
-import { graphql, useStaticQuery } from "gatsby";
-import Img from "gatsby-image";
-import React, { useState } from "react";
-import { animated, useSpring } from "react-spring";
-import styled from "styled-components";
-import tw from "tailwind.macro";
+import { graphql, useStaticQuery } from 'gatsby';
+import Img from 'gatsby-image';
+import React, { useState } from 'react';
+import { animated, useSpring } from 'react-spring';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
 
 const ImgWrapper = styled(animated.div)`
   ${tw`w-32 xl:w-48 mx-auto`};
@@ -70,7 +70,7 @@ const GitImgRoll = () => {
         style={{
           opacity,
           transform: transform.interpolate((t) => `${t} rotateX(180deg)`),
-          marginTop: "-100%",
+          marginTop: '-100%',
         }}
       >
         <Img fluid={data.placeholderImage.childImageSharp.fluid} />

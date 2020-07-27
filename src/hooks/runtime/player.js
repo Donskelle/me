@@ -1,8 +1,8 @@
-import { API, graphqlOperation } from "aws-amplify";
-import { useEffect, useState } from "react";
+import { API, graphqlOperation } from 'aws-amplify';
+import { useEffect, useState } from 'react';
 
-import { getPlayer } from "../../graphql/queries";
-import { onUpdatePlayer as onUpdatePlayerSubsription } from "../../graphql/subscriptions";
+import { getPlayer } from '../../graphql/queries';
+import { onUpdatePlayer as onUpdatePlayerSubsription } from '../../graphql/subscriptions';
 
 export function usePlayer() {
   const [playerStatus, setPlayerStatus] = useState({
@@ -14,7 +14,7 @@ export function usePlayer() {
   useEffect(() => {
     API.graphql(
       graphqlOperation(getPlayer, {
-        id: "dc3c047f-f0b0-4108-9632-f029440b14b6",
+        id: 'dc3c047f-f0b0-4108-9632-f029440b14b6',
       }),
     ).then((playerData) => {
       setPlayerStatus({ ...playerData.data.getPlayer, playing: false });

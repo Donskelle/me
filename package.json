@@ -52,7 +52,7 @@
     "build": "gatsby build",
     "develop": "gatsby develop",
     "lint": "eslint cypress amplify src --ext .js,.jsx",
-    "prettier:fix": "prettier --write \"src/**/*.js\"",
+    "prettier:fix": "prettier --write \"{amplify,cypress,src}/**/*.{js,jsx}\"",
     "lint:fix": "eslint cypress amplify src --ext .js,.jsx --fix",
     "lhci:collect": "lhci collect",
     "lhci:upload": "lhci upload --target temporary-public-storage",
