@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from "gatsby";
 
 export const useStaticTracks = () => {
   const data = useStaticQuery(graphql`
@@ -15,6 +15,6 @@ export const useStaticTracks = () => {
         }
       }
     }
-  `)
-  return data.muzzak.listTracks.items
-}
+  `);
+  return data.muzzak.listTracks.items;
+};

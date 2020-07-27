@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from "gatsby";
 
 export const useGithubInfo = () => {
   const data = useStaticQuery(graphql`
@@ -10,6 +10,6 @@ export const useGithubInfo = () => {
         }
       }
     }
-  `)
-  return data.github.viewer
-}
+  `);
+  return data.github.viewer;
+};

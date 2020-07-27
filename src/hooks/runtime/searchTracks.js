@@ -1,42 +1,42 @@
-import { API, graphqlOperation } from 'aws-amplify'
-import { useEffect, useState } from 'react'
+import { API, graphqlOperation } from "aws-amplify";
+import { useEffect, useState } from "react";
 
-import { youtubesearch } from '../../graphql/queries'
-import { useDebounce } from '../useDebounce'
+import { youtubesearch } from "../../graphql/queries";
+import { useDebounce } from "../useDebounce";
 
 export function useSearchTracks(currentSearch) {
-  const search = useDebounce(currentSearch, 300)
-  const [searchResult, setSearchResult] = useState([])
-  const [loading, setLoading] = useState(false)
-  const [error, setError] = useState('')
+  const search = useDebounce(currentSearch, 300);
+  const [searchResult, setSearchResult] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     if (search) {
-      setLoading(true)
+      setLoading(true);
       API.graphql(
         graphqlOperation(youtubesearch, {
           search,
         }),
       )
-        .then(searchData => {
-          setError('')
-          setSearchResult(searchData.data.youtubesearch)
+        .then((searchData) => {
+          setError("");
+          setSearchResult(searchData.data.youtubesearch);
         })
-        .catch(e => {
-          setError(e)
+        .catch((e) => {
+          setError(e);
         })
-        .finally(() => setLoading(false))
+        .finally(() => setLoading(false));
     }
-  }, [search])
+  }, [search]);
 
   useEffect(() => {
     if (!currentSearch) {
-      setSearchResult([])
-      setLoading(false)
+      setSearchResult([]);
+      setLoading(false);
     } else {
-      setLoading(true)
+      setLoading(true);
     }
-  }, [currentSearch])
+  }, [currentSearch]);
 
-  return { searchResult, loading, error }
+  return { searchResult, loading, error };
 }
