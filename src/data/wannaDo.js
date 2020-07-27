@@ -1,11 +1,15 @@
 const wannaDoList = [
   {
     name: 'Frontend',
-    list: ['Compile Time Frameworks', 'React Relay', 'Svelte 3'],
+    list: ['Compile Time Frameworks', 'React', 'Svelte 3'],
   },
   {
     name: 'State-Managment',
-    list: ['Relay', 'Apollo', 'MobX', 'Redux'],
+    list: ['Relay', 'Apollo', 'MobX', 'React Query'],
+  },
+  {
+    name: 'CSS',
+    list: ['Tailwind'],
   },
   {
     name: 'Backend',
