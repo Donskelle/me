@@ -6,7 +6,6 @@
  */
 
 import { graphql, useStaticQuery } from 'gatsby'
-import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
 
@@ -86,14 +85,6 @@ SEO.defaultProps = {
   meta: [],
   keywords: [],
   description: ``,
-}
-
-SEO.propTypes = {
-  description: PropTypes.string,
-  lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  keywords: PropTypes.arrayOf(PropTypes.string),
-  title: PropTypes.string.isRequired,
 }
 
 export default SEO
