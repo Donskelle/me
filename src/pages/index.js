@@ -5,7 +5,6 @@ import { Parallax } from 'react-spring/renderprops-addons';
 
 import awsconfig from '../aws-exports';
 import SEO from '../components/seo';
-import GlobalStyle from '../styles/global';
 import Contact from '../views/Contact';
 import Footer from '../views/Footer';
 import GithubStars from '../views/GithubStars';
@@ -24,7 +23,6 @@ Amplify.configure(awsconfig);
 // Configure a custom GraphQL endpoint
 const IndexPage = () => (
   <MuiThemeProvider theme={muiTheme}>
-    <GlobalStyle />
     <SEO
       title="Donskelle - Frontend Developer Hamburg"
       keywords={[`javascript`, `hamburg`, `frontend`]}
