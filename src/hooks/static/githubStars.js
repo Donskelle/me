@@ -1,4 +1,4 @@
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery } from 'gatsby';
 
 export const useGithubStars = () => {
   const data = useStaticQuery(graphql`
@@ -33,11 +33,11 @@ export const useGithubStars = () => {
         }
       }
     }
-  `)
-  const { nodes, totalCount } = data.github.viewer.starredRepositories
+  `);
+  const { nodes, totalCount } = data.github.viewer.starredRepositories;
 
   return {
-    repos: nodes.filter(repo => !repo.isPrivate),
+    repos: nodes.filter((repo) => !repo.isPrivate),
     totalCount,
-  }
-}
+  };
+};

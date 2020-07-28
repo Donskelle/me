@@ -4,7 +4,7 @@
 export const sendMail = `mutation SendMail($name: String!, $email: String!, $message: String!) {
   sendMail(name: $name, email: $email, message: $message)
 }
-`
+`;
 export const createTrack = `mutation CreateTrack($input: CreateTrackInput!) {
   createTrack(input: $input) {
     id
@@ -34,7 +34,7 @@ export const createTrack = `mutation CreateTrack($input: CreateTrackInput!) {
     channelTitle
   }
 }
-`
+`;
 export const updateTrack = `mutation UpdateTrack($input: UpdateTrackInput!) {
   updateTrack(input: $input) {
     id
@@ -64,7 +64,7 @@ export const updateTrack = `mutation UpdateTrack($input: UpdateTrackInput!) {
     channelTitle
   }
 }
-`
+`;
 export const deleteTrack = `mutation DeleteTrack($input: DeleteTrackInput!) {
   deleteTrack(input: $input) {
     id
@@ -94,7 +94,7 @@ export const deleteTrack = `mutation DeleteTrack($input: DeleteTrackInput!) {
     channelTitle
   }
 }
-`
+`;
 export const createPlayer = `mutation CreatePlayer($input: CreatePlayerInput!) {
   createPlayer(input: $input) {
     id
@@ -112,7 +112,7 @@ export const createPlayer = `mutation CreatePlayer($input: CreatePlayerInput!) {
     }
   }
 }
-`
+`;
 export const updatePlayer = `mutation UpdatePlayer($input: UpdatePlayerInput!) {
   updatePlayer(input: $input) {
     id
@@ -130,7 +130,7 @@ export const updatePlayer = `mutation UpdatePlayer($input: UpdatePlayerInput!) {
     }
   }
 }
-`
+`;
 export const deletePlayer = `mutation DeletePlayer($input: DeletePlayerInput!) {
   deletePlayer(input: $input) {
     id
@@ -148,4 +148,4 @@ export const deletePlayer = `mutation DeletePlayer($input: DeletePlayerInput!) {
     }
   }
 }
-`
+`;

@@ -19,6 +19,6 @@ const doList = [
     name: 'CMS/Shop',
     list: ['Gatsby', 'Typo3', 'Magento', 'XT-Commerce', 'Wordpress'],
   },
-]
+];
 
-export default doList
+export default doList;

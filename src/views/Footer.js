@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
-import { colors } from '../../tailwind'
-import { Content, ContentBG } from '../components/elements'
+import { colors } from '../../tailwind';
+import { Content, ContentBG } from '../components/elements';
 
 const Footer = ({ offset }) => (
   <>
@@ -12,5 +12,5 @@ const Footer = ({ offset }) => (
       <a href="https://github.com/Donskelle/me">Source</a>
     </Content>
   </>
-)
-export default Footer
+);
+export default Footer;

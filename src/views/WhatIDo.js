@@ -1,17 +1,17 @@
-import React from 'react'
-import { useInView } from 'react-intersection-observer'
-import { animated, useTrail } from 'react-spring'
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
+import { animated, useTrail } from 'react-spring';
 
-import { Content } from '../components/elements'
-import doList from '../data/do'
-import H2 from '../typo/h2'
+import { Content } from '../components/elements';
+import doList from '../data/do';
+import H2 from '../typo/h2';
 
 const WhatIDo = ({ offset }) => {
   const [ref, inView] = useInView({
     threshold: 1,
     triggerOnce: true,
-  })
-  const trail = useTrail(doList.length, { opacity: inView ? 1 : 0 })
+  });
+  const trail = useTrail(doList.length, { opacity: inView ? 1 : 0 });
 
   return (
     <Content speed={1} offset={offset}>
@@ -23,6 +23,6 @@ const WhatIDo = ({ offset }) => {
         </animated.div>
       ))}
     </Content>
-  )
-}
-export default WhatIDo
+  );
+};
+export default WhatIDo;

@@ -1,7 +1,7 @@
-const axios = require('axios')
+const axios = require('axios');
 
 exports.handler = (event, context, callback) => {
-  const { name, email, message } = event.arguments
+  const { name, email, message } = event.arguments;
   axios({
     url: 'https://api.sendgrid.com/v3/mail/send',
     method: 'POST',
@@ -14,9 +14,9 @@ exports.handler = (event, context, callback) => {
     },
   })
     .then(() => {
-      context.done(null, 'Success')
+      context.done(null, 'Success');
     })
-    .catch(e => {
-      callback(e)
-    })
-}
+    .catch((e) => {
+      callback(e);
+    });
+};

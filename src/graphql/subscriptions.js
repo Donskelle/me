@@ -30,7 +30,7 @@ export const onCreateTrack = `subscription OnCreateTrack {
     channelTitle
   }
 }
-`
+`;
 export const onUpdateTrack = `subscription OnUpdateTrack {
   onUpdateTrack {
     id
@@ -60,7 +60,7 @@ export const onUpdateTrack = `subscription OnUpdateTrack {
     channelTitle
   }
 }
-`
+`;
 export const onDeleteTrack = `subscription OnDeleteTrack {
   onDeleteTrack {
     id
@@ -90,7 +90,7 @@ export const onDeleteTrack = `subscription OnDeleteTrack {
     channelTitle
   }
 }
-`
+`;
 export const onCreatePlayer = `subscription OnCreatePlayer {
   onCreatePlayer {
     id
@@ -108,7 +108,7 @@ export const onCreatePlayer = `subscription OnCreatePlayer {
     }
   }
 }
-`
+`;
 export const onUpdatePlayer = `subscription OnUpdatePlayer {
   onUpdatePlayer {
     id
@@ -126,7 +126,7 @@ export const onUpdatePlayer = `subscription OnUpdatePlayer {
     }
   }
 }
-`
+`;
 export const onDeletePlayer = `subscription OnDeletePlayer {
   onDeletePlayer {
     id
@@ -144,4 +144,4 @@ export const onDeletePlayer = `subscription OnDeletePlayer {
     }
   }
 }
-`
+`;

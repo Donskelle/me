@@ -27,7 +27,7 @@ export const youtubesearch = `query Youtubesearch($search: String) {
     }
   }
 }
-`
+`;
 export const getTrack = `query GetTrack($id: ID!) {
   getTrack(id: $id) {
     id
@@ -57,7 +57,7 @@ export const getTrack = `query GetTrack($id: ID!) {
     channelTitle
   }
 }
-`
+`;
 export const listTracks = `query ListTracks(
   $filter: ModelTrackFilterInput
   $limit: Int
@@ -77,7 +77,7 @@ export const listTracks = `query ListTracks(
     nextToken
   }
 }
-`
+`;
 export const getPlayer = `query GetPlayer($id: ID!) {
   getPlayer(id: $id) {
     id
@@ -95,7 +95,7 @@ export const getPlayer = `query GetPlayer($id: ID!) {
     }
   }
 }
-`
+`;
 export const listPlayers = `query ListPlayers(
   $filter: ModelPlayerFilterInput
   $limit: Int
@@ -120,7 +120,7 @@ export const listPlayers = `query ListPlayers(
     nextToken
   }
 }
-`
+`;
 export const tracksByDate = `query TracksByDate(
   $createdAt: AWSDateTime
   $sortDirection: ModelSortDirection
@@ -148,4 +148,4 @@ export const tracksByDate = `query TracksByDate(
     nextToken
   }
 }
-`
+`;

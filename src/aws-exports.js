@@ -7,6 +7,6 @@ const awsmobile = {
   aws_appsync_region: 'eu-west-2',
   aws_appsync_authenticationType: 'API_KEY',
   aws_appsync_apiKey: 'da2-vmub5aaqyvdovcyyydpkluygwe',
-}
+};
 
-export default awsmobile
+export default awsmobile;

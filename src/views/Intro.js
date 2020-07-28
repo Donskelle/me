@@ -1,27 +1,27 @@
-import React from 'react'
-import styled from 'styled-components'
-import tw from 'tailwind.macro'
+import React from 'react';
+import styled from 'styled-components';
+import tw from 'tailwind.macro';
 
-import { Content } from '../components/elements'
-import GitImgRoll from '../components/GitImgRoll'
-import { IntroBackground } from '../components/IntroBackground'
-import { useGithubInfo } from '../hooks/static/githubInfo'
-import H1 from '../typo/h1'
-import Subheading from '../typo/subheading'
+import { Content } from '../components/elements';
+import GitImgRoll from '../components/GitImgRoll';
+import { IntroBackground } from '../components/IntroBackground';
+import { useGithubInfo } from '../hooks/static/githubInfo';
+import H1 from '../typo/h1';
+import Subheading from '../typo/subheading';
 
 const Wrapper = styled.div`
   ${tw`w-full  text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
-`
+`;
 const Container = styled.div`
   ${tw`flex-1 self-stretch`};
-`
+`;
 
 const ImgDes = styled.p`
   ${tw`text-center`};
-`
+`;
 
 const Intro = ({ offset }) => {
-  const info = useGithubInfo()
+  const info = useGithubInfo();
 
   return (
     <>
@@ -44,7 +44,7 @@ const Intro = ({ offset }) => {
         </Wrapper>
       </Content>
     </>
-  )
-}
+  );
+};
 
-export default Intro
+export default Intro;

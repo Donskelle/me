@@ -1,17 +1,17 @@
-import loadable from '@loadable/component'
-import React from 'react'
-import { useInView } from 'react-intersection-observer'
+import loadable from '@loadable/component';
+import React from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import { Content, ContentBG } from '../components/elements'
-import H2 from '../typo/h2'
+import { Content, ContentBG } from '../components/elements';
+import H2 from '../typo/h2';
 
-const LazyContactForm = loadable(() => import('../components/ContactForm'))
+const LazyContactForm = loadable(() => import('../components/ContactForm'));
 
 const Contact = ({ offset }) => {
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: true,
-  })
+  });
 
   return (
     <>
@@ -21,7 +21,7 @@ const Contact = ({ offset }) => {
         {inView && <LazyContactForm fallback={<p>Loading</p>} />}
       </Content>
     </>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;
