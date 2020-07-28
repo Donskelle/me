@@ -40,10 +40,10 @@ const upDownWideAnimation = css`
 
 export const UpDown = styled.div`
   animation: ${upDownAnimation};
-  ${tw`pin absolute`};
+  ${tw`absolute`};
 `;
 
 export const UpDownWide = styled.div`
   animation: ${upDownWideAnimation};
-  ${tw`pin absolute`};
+  ${tw`absolute`};
 `;
