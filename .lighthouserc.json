@@ -8,6 +8,7 @@
     "assert": {
       "preset": "lighthouse:no-pwa",
       "assertions": {
+        "unused-javascript": "warn",
         "uses-http2": "off",
         "first-contentful-paint": "off",
         "unminified-javascript": "off",
