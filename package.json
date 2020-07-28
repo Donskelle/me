@@ -34,7 +34,7 @@
     "tailwind.macro": "1.0.0-alpha.10"
   },
   "devDependencies": {
-    "@lhci/cli": "0.3.8",
+    "@lhci/cli": "0.4.3",
     "babel-eslint": "10.1.0",
     "cypress": "4.11.0",
     "eslint": "7.5.0",
