@@ -8,6 +8,7 @@ module.exports = {
   plugins: [
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-postcss`,
     {
       resolve: 'gatsby-source-graphql',
       options: {
@@ -68,5 +69,14 @@ module.exports = {
         },
       },
     },
+    {
+      resolve: `gatsby-plugin-purgecss`,
+      options: {
+        tailwind: true,
+        printRejected: true,
+        purgeOnly: [`src/styles/globals.css`],
+        // develop: true, // Enable while using `gatsby develop`
+      },
+    },
   ],
-}
+};

@@ -1,23 +1,22 @@
 import styled from 'styled-components';
 
-import { colors } from '../../tailwind';
 import { ContentBG } from './elements';
 
 const IntroBackground = styled(ContentBG)`
   animation: gradientBgAnimation 15s ease infinite alternate;
-  background: linear-gradient(45deg, ${colors['blue-darkest']}, transparent),
+  background: linear-gradient(45deg, #0a224e, transparent),
     repeating-linear-gradient(
       45deg,
-      ${colors['blue-light']} 0%,
-      ${colors['blue-light']} 5%,
+      #6cb2eb 0%,
+      #6cb2eb 5%,
       transparent 5%,
       transparent 10%
     ),
-    ${colors['blue-darker']}
+      #2779bd
       repeating-linear-gradient(
         -45deg,
-        ${colors['blue-dark']} 0%,
-        ${colors['blue-dark']} 5%,
+        #2779bd 0%,
+        #2779bd 5%,
         transparent 5%,
         transparent 10%
       );
