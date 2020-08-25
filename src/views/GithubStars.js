@@ -23,7 +23,7 @@ export default ({ offset }) => {
 
   return (
     <>
-      <ContentBG bg='#2f365f' offset={offset} speed={0.2} />
+      <ContentBG bg="#2f365f" offset={offset} speed={0.2} />
       <Content speed={0.4} offset={offset}>
         <Wrapper>
           <H2 ref={ref}>Interessting Repos on Github</H2>

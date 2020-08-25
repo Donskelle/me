@@ -12,7 +12,7 @@ const IntroBackground = styled(ContentBG)`
       transparent 5%,
       transparent 10%
     ),
-      #2779bd
+    #2779bd
       repeating-linear-gradient(
         -45deg,
         #2779bd 0%,
