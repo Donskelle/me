@@ -1,9 +1,7 @@
-import Avatar from '@material-ui/core/Avatar';
+// import Avatar from '@material-ui/core/Avatar';
 import Divider from '@material-ui/core/Divider';
 // import { makeStyles } from '@material-ui/core/styles'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+// import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
 import React from 'react';
@@ -14,13 +12,11 @@ const RepoList = ({ repos }) => {
   const mobile = isMobile();
   const slicedRepos = (mobile && repos.slice(0, 8)) || repos;
   return (
-    <List>
+    <ul>
       {slicedRepos
         .map((star) => (
-          <ListItem alignItems="flex-start" key={star.url}>
-            <ListItemAvatar>
+          <li key={star.url}>
               <Avatar alt={star.owner.name} src={star.owner.avatarUrl} />
-            </ListItemAvatar>
             <ListItemText
               primary={star.name}
               secondary={
@@ -37,14 +33,14 @@ const RepoList = ({ repos }) => {
                 </>
               }
             />
-          </ListItem>
+          </li>
         ))
         .reduce((prev, curr, i) => [
           prev,
           <Divider key={i} variant="inset" component="li" />, // eslint-disable-line react/no-array-index-key
           curr,
         ])}
-    </List>
+    </ul>
   );
 };
 
