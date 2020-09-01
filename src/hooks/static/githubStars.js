@@ -7,7 +7,7 @@ export const useGithubStars = () => {
         viewer {
           starredRepositories(
             orderBy: { field: STARRED_AT, direction: DESC }
-            first: 20
+            first: 10
           ) {
             totalCount
             nodes {
@@ -17,6 +17,13 @@ export const useGithubStars = () => {
               description
               stargazers {
                 totalCount
+              }
+              imageFile {
+                childImageSharp {
+                  fluid(maxWidth: 150) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
               owner {
                 ... on Github_Organization {

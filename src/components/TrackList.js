@@ -1,16 +1,5 @@
-import Avatar from '@material-ui/core/Avatar';
-import IconButton from '@material-ui/core/IconButton';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemAvatar from '@material-ui/core/ListItemAvatar';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import { makeStyles } from '@material-ui/core/styles';
-import DeleteIcon from '@material-ui/icons/Delete';
 import { API, graphqlOperation } from 'aws-amplify';
 import React from 'react';
-import { animated, useTransition } from 'react-spring';
-import styled from 'styled-components';
 
 import {
   deleteTrack as deleteTrackMutation,
@@ -18,22 +7,12 @@ import {
 } from '../graphql/mutations';
 import { useTracks } from '../hooks/runtime/tracks';
 import SubHeading from '../typo/subheading';
+import Button from "./Button";
 
-const AnimatedListItem = styled(animated(ListItem))``;
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: '100%',
-    maxWidth: 400,
-    backgroundColor: theme.palette.background.paper,
-    padding: 0,
-  },
-}));
 
 export default function InteractiveList({ currentTrackId }) {
   const tracks = useTracks();
-
-  const classes = useStyles();
 
   const deleteTrack = (id) => {
     API.graphql(graphqlOperation(deleteTrackMutation, { input: { id } }));
@@ -49,39 +28,25 @@ export default function InteractiveList({ currentTrackId }) {
     );
   };
 
-  const transitionsTracks = useTransition(tracks, (item) => item.id, {
-    enter: { opacity: 1, height: 80 },
-    leave: { opacity: 0, height: 0 },
-  });
-
   return (
     <>
       <SubHeading>Current Tracklist</SubHeading>
-      <List dense className={classes.root}>
-        {transitionsTracks.map(({ item, key, props: { ...rest } }) => (
-          <AnimatedListItem
-            key={key}
-            style={rest}
-            button
+      <ul>
+        {tracks.map((item) => (
+          // eslint-disable-next-line jsx-a11y/no-noninteractive-element-interactions
+          <li
+            key={item.id}
             selected={currentTrackId === item.id}
             onClick={() => playTrack(item.id)}
           >
-            <ListItemAvatar>
-              <Avatar>{item.addedBy.slice(0, 2)}</Avatar>
-            </ListItemAvatar>
-            <ListItemText primary={item.title} secondary={item.channelTitle} />
-            <ListItemSecondaryAction>
-              <IconButton
-                edge="end"
-                aria-label="delete"
-                onClick={() => deleteTrack(item.id)}
-              >
-                <DeleteIcon />
-              </IconButton>
-            </ListItemSecondaryAction>
-          </AnimatedListItem>
+            {item.addedBy.slice(0, 2)}
+            <p>
+              {item.title} - {item.channelTitle}
+            </p>
+            <Button onClick={() => deleteTrack(item.id)}>delete</Button>
+          </li>
         ))}
-      </List>
+      </ul>
     </>
   );
 }

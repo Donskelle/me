@@ -1,14 +1,15 @@
-import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import { API, graphqlOperation } from 'aws-amplify';
 import React, { useState } from 'react';
 
 import { sendMail as sendMailMutation } from '../graphql/mutations';
 import { useForm } from '../hooks/useForm';
 import H2 from '../typo/h2';
+import Button from "./Button";
+import InputField from "./InputField";
+import TextArea from "./TextArea";
 
 const ContactForm = () => {
-  const [{ name, email, message }, setValue] = useForm({});
+  const [{ name, email, message }, setValue] = useForm();
   const [formSending, setFormSending] = useState(false);
   const [submited, setSubmited] = useState(false);
 
@@ -24,32 +25,22 @@ const ContactForm = () => {
   if (submited) return <H2>Thanks</H2>;
 
   return (
-    <form onSubmit={sendMail} disabled={formSending}>
-      <TextField
+    <form onSubmit={sendMail} disabled={formSending} onChange={setValue}>
+      <InputField
         name="name"
-        label="Name"
-        margin="normal"
-        variant="outlined"
-        onChange={setValue}
+        placeholder="Name"
         required
       />
-      <TextField
+      <InputField
         name="email"
-        label="E-Mail"
-        margin="normal"
-        variant="outlined"
+        placeholder="E-Mail"
         type="email"
-        onChange={setValue}
         required
       />
-      <TextField
+      <TextArea
         name="message"
-        label="Message"
-        margin="normal"
-        variant="outlined"
-        multiline
+        placeholder="Message"
         rows="4"
-        onChange={setValue}
         required
       />
       <Button variant="contained" color="primary" type="submit">
