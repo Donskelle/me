@@ -40,7 +40,6 @@ const ContactForm = () => {
       <TextArea
         name="message"
         placeholder="Message"
-        multiline
         rows="4"
         required
       />
