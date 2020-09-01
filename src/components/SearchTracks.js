@@ -1,4 +1,3 @@
-import TextField from '@material-ui/core/TextField';
 import { API, graphqlOperation } from 'aws-amplify';
 import React, { useState } from 'react';
 
@@ -6,6 +5,7 @@ import { createTrack } from '../graphql/mutations';
 import { useSearchTracks } from '../hooks/runtime/searchTracks';
 import SubHeading from '../typo/subheading';
 import { cleanObjectReference } from '../utils';
+import InputField from './InputField';
 
 const SearchTrack = () => {
   const [searchYoutubeString, setSearchYoutubeString] = useState('');
@@ -51,13 +51,7 @@ const SearchTrack = () => {
   return (
     <>
       <SubHeading>Add some Music here</SubHeading>
-      <TextField
-        id="filled-full-width"
-        label="Search Music"
-        style={{ padding: 4 }}
-        fullWidth
-        margin="normal"
-        variant="filled"
+      <InputField
         onChange={(e) => setSearchYoutubeString(e.target.value)}
         value={searchYoutubeString}
       />
