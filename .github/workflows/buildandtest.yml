@@ -122,12 +122,11 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
-  smsOnFailure:
-    needs: [build, lighthouse, cypress]
-    if: failure() && github.ref == 'refs/heads/master'
-    runs-on: ubuntu-latest
-    name: Send SMS on Error in Master Branch
-
+  # smsOnFailure:
+  #   needs: [build, lighthouse, cypress]
+  #   if: failure() && github.ref == 'refs/heads/master'
+  #   runs-on: ubuntu-latest
+  #   name: Send SMS on Error in Master Branch
     # steps:
     #   - name: 'Sending SMS Notification'
     #     uses: twilio-labs/actions-sms@v1
