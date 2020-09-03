@@ -3,10 +3,9 @@
 # me - Donskelle Website
 
 ## Tech Stack 
-* Gatsby (React, Server Side Rendering, Build Tool)
+* Gatsby
 * Amplify (DynamoDB, Serverless Functions, GraphQL Endpoint)
-* TailwindCSS (Minimal CSS Design System)
+* TailwindCSS
 * Styled Components
-* React Spring (Parallax, Animations)
-* Material Components
+* React Spring
 * Tests Cypress and Lighthouse
