@@ -122,19 +122,50 @@ jobs:
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
+  analyze:
+    name: AnalyzeCodeQL
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        # Override automatic language detection by changing the below list
+        # Supported options are ['csharp', 'cpp', 'go', 'java', 'javascript', 'python']
+        language: ['javascript']
+        # Learn more...
+        # https://docs.github.com/en/github/finding-security-vulnerabilities-and-errors-in-your-code/configuring-code-scanning#overriding-automatic-language-detection
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Download build
+      uses: actions/download-artifact@v1
+      with:
+        name: public
+  
+    # Initializes the CodeQL tools for scanning.
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v1
+      with:
+         languages: ${{ matrix.language }}
+
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v1
+
   # smsOnFailure:
   #   needs: [build, lighthouse, cypress]
   #   if: failure() && github.ref == 'refs/heads/master'
   #   runs-on: ubuntu-latest
   #   name: Send SMS on Error in Master Branch
-    # steps:
-    #   - name: 'Sending SMS Notification'
-    #     uses: twilio-labs/actions-sms@v1
-    #     with:
-    #       fromPhoneNumber: '+12039025279'
-    #       toPhoneNumber: '+49(176)32630997'
-    #       message: 'There is an error on your website. Goto https://github.com/donskelle/me'
-    #     env:
-    #       TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
-    #       TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
-    #       TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
+  # steps:
+  #   - name: 'Sending SMS Notification'
+  #     uses: twilio-labs/actions-sms@v1
+  #     with:
+  #       fromPhoneNumber: '+12039025279'
+  #       toPhoneNumber: '+49(176)32630997'
+  #       message: 'There is an error on your website. Goto https://github.com/donskelle/me'
+  #     env:
+  #       TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+  #       TWILIO_API_KEY: ${{ secrets.TWILIO_API_KEY }}
+  #       TWILIO_API_SECRET: ${{ secrets.TWILIO_API_SECRET }}
