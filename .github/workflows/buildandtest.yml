@@ -123,7 +123,8 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
 
   analyze:
-    name: AnalyzeCodeQL
+    name: Analyze CodeQL
+    needs: build
     runs-on: ubuntu-latest
 
     strategy:
