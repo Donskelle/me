@@ -10,7 +10,7 @@ import H1 from '../typo/h1';
 import Subheading from '../typo/subheading';
 
 const Wrapper = styled.div`
-  ${tw`w-full  text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
+  ${tw`w-full text-center flex-col xl:w-2/3 flex md:flex-row md:text-left`};
 `;
 const Container = styled.div`
   ${tw`flex-1 self-stretch`};
