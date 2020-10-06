@@ -47,7 +47,7 @@
     "postcss-preset-env": "6.7.0",
     "prettier": "2.1.1",
     "start-server-and-test": "1.11.3",
-    "tailwindcss": "1.8.9"
+    "tailwindcss": "1.8.10"
   },
   "license": "MIT",
   "scripts": {
