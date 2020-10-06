@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "author": "Donskelle <donskelle@gmail.com>",
   "dependencies": {
-    "@loadable/component": "5.13.1",
+    "@loadable/component": "5.13.2",
     "aws-amplify": "3.0.25",
     "babel-plugin-styled-components": "1.11.1",
     "babel-preset-gatsby": "0.5.8",
