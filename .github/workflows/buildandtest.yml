@@ -35,7 +35,7 @@ jobs:
           ME_AWS_APIKEY: ${{ secrets.ME_AWS_APIKEY }}
           G_TOKEN_READ: ${{ secrets.G_TOKEN_READ }}
       - name: Upload build
-        uses: actions/upload-artifact@v1
+        uses: actions/upload-artifact@v2
         if: success()
         with:
           name: public
